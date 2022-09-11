@@ -5,53 +5,41 @@ var zipEl=document.querySelector("#zip-search-input") ;
 var radiusLocationEl = document.querySelector("#radius-search-input");
 var searchEl = document.querySelector("#btnSearch");
 
-/*function getCurrentLocation_radius (){
-        //this function will be used to get users location
-    var userSubmission = {
-        current_location: myCurrentLocationEl.value.trim(),
-        intersted_radius: radius.value.trim()
-    }
-
-    var itemKey="key??"; //this is the item key I have to get vaule from
-
-   //if local storage do have data continue
-   if(localStorage.getItem(itemKey) != null){
-    console.log(`inside getting currentLocation and radius`);
-
-    myCurrentLocation = localStorage.getItem(userSubmission.current_location);
-    radius = localStorage.getItem(userSubmission.intersted_radius);
- 
-}else{ //if no data was found display
-    console.log(`localStorage did not have data for ${itemKey}`);
-    innerHighScoreEl.innerText= null;
-}
-}*/
-
-
+var latitude = null;
+var longitude =null;
 
 searchEl.addEventListener("click", ()=>{
+  latitude =null; longitude=null;
     getCurrentLocationAPI();
     
 })
-
 
 function getCurrentLocationAPI(){
 
      userCurrentPerm = `${cityEl.value.trim()},${stateEl.value.trim()},${zipEl.value.trim()}`
     console.log(`the Script is inside getCurrentLocationAPI to get the current ${userCurrentPerm}`);
-    //var requestUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=${apiKey.mapQuestKey}&location=${userCurrentPerm}`;
-   var requestUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=vWzHFILMQOPgQjlt4C8DWFxfHDsrfaPR&location=${userCurrentPerm}`;
+   var requestUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=vWzHFILMQOPgQjlt4C8DWFxfHDsrfaPR&street=${userCurrentPerm}`;
+   
 
 
-    fetch(requestUrl)
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(data) {
-        for (var i = 0; i < data.length; i++) {
-          var listItem = document.createElement('li');
-          listItem.textContent = data[i].html_url;
-          repoList.appendChild(listItem);
+    fetch(requestUrl,{method:'GET'}) //fetaching all realted area for current location
+      .then((response) => response.json())
+      .then((data) => {
+     
+    for(var i=0; i < data.results.length; i++){
+          console.log("inside the loop");
+          latitude = JSON.stringify(data.results[i].locations[i].latLng['lat']);
+          longitude = JSON.stringify(data.results[i].locations[i].latLng['lng']);
+
         }
+        console.log(`Current location latitude is ${latitude} and longitude is ${longitude}`);
+      })
+   
+      .catch((error) => {
+        console.error('Error:', error);
       });
 }
+
+
+
+
