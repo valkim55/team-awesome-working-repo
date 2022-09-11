@@ -38,9 +38,8 @@ var radius = null ;*/
 function getCurrentLocationAPI(){
     var userCurrentPerm = `${cityEl.value.trim()},${stateEl.value.trim()},${zipEl.value.trim()}`
     console.log(`the Script is inside getCurrentLocationAPI to get the current ${userCurrentPerm}`);
-    //var requestUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=${apiKey.mapQuestKey}&location=${userCurrentPerm}`;
-   var requestUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=vWzHFILMQOPgQjlt4C8DWFxfHDsrfaPR&location=${userCurrentPerm}`;
-
+    var requestUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=${apiKey.mapQuestKey}&location=${userCurrentPerm}`;
+  
 
     fetch(requestUrl)
       .then(function(response) {
