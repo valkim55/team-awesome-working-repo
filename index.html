@@ -1,61 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Day Trip Picker</title>
-        <link rel="stylesheet" href="./assets/css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-        <link class="tabIcon" rel="icon" type="image/x-icon"
-        href="../team-awesome-working-repo/assets/images/favicon.png"
-        alt="jsfavicon"> </link>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day Trip Picker</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
 
-    <body>
-        <header>
-        </header>
+<body>
+    <header>
+    </header>
+    
+    <main>
+        <section class="bg-white my-4 p-4 rounded">
+        <p>Current has to be combination of any two (City, State or zip)</p>
+        <input type="search" id="city-search-input" placeholder="My Current city" />
+        <input type="search" id="state-search-input" placeholder="My Current state" />
+        <input type="search" id="zip-search-input" placeholder="My Current zip" />
+        <input type="number" id="radius-search-input" placeholder="My Radius is"/>
+        <button type="button" id="btnSearch">Search</button>
+        </section>
+    </main>
 
-        <main class="row justify-content-center">
-            <form class="bg-white my-4 p-4 rounded">
-                <p>Current has to be combination of any two (City, State or zip)</p>
-                <div class="form-group">
-                    <label for="city">Current City</label>
-                    <input type="text" class="form-control"
-                        id="city-search-input" placeholder="My Current city" />
-                </div>
+    <footer>
+    </footer>
 
-                <div class="form-group">
-                    <label for="state">Current State</label>
-                    <input type="text" class="form-control"
-                        id="state-search-input" placeholder="My Current state"/>
-                </div>
-
-                <div class="form-group">
-                    <label for="zip">Current Zip </label>
-                    <input type="text" class="form-control"
-                        id="zip-search-input" placeholder="My Current zip" />
-                </div>
-
-                <div class="form-group">
-                    <label for="radius">Intersted Radius</label>
-                    <input type="text" class="form-control"
-                        id="radius-search-input" placeholder="My Radius is" />
-                </div>
-                <button id="btnSearch">Search</button>
-            </form>
-            <select>
-                
-            </select>
-        </main>
-
-        <footer>
-        </footer>
-
-        <!--<script src="./assets/js/script.js"></script>
+    <!--<script src="./assets/js/script.js"></script>
     <script src="./assets/js/mapScript.js" type="module"></script>-->
-        <script src="./assets/js/mapScript.js"></script>
-    </body>
+    <script src="./assets/js/mapScript.js" ></script>
+</body>
 
 </html>
