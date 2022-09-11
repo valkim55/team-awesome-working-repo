@@ -1,11 +1,9 @@
-import * as apiKeys from '../environmentDoc/apiKeys.json';
 
-var currentLocationEl = document.querySelector("#place-search-input");
-
+var cityEl = document.querySelector("#city-search-input");
+var stateEl=document.querySelector("#state-search-input") ;
+var zipEl=document.querySelector("#zip-search-input") ;
 var radiusLocationEl = document.querySelector("#radius-search-input");
 var searchEl = document.querySelector("#btnSearch");
-
-
 
 /*function getCurrentLocation_radius (){
         //this function will be used to get users location
@@ -29,29 +27,20 @@ var searchEl = document.querySelector("#btnSearch");
 }
 }*/
 
-searchEl.addEventListener("click", ()=>{
-    storeUsersInput();
-})
-var currentLocation = null;
-var radius = null ;
-function storeUsersInput(){
-    //resetting 
-    currentLocation = null;
-    radius = null ;
 
-    var userInput = {
-        input_currentLocation: currentLocationEl.value.trim(),
-        input_userRadius : radiusLocationEl.value.trim(),
-    
-    }
-    //store location in local storage
-    currentLocation = localStorage.setItem("currentLocation",JSON.stringify(userInput.input_currentLocation));
-    radius = localStorage.setItem("radius",JSON.stringify(userInput.input_userRadius));
+
+searchEl.addEventListener("click", ()=>{
     getCurrentLocationAPI();
-   // https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js
-}
+})
+/*var currentLocation = null;
+var radius = null ;*/
+
 function getCurrentLocationAPI(){
-    var requestUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=${apiKeys.mapQuestKey}&location=1600+Pennsylvania+Ave+NW,Washington,DC,20500`;
+    var userCurrentPerm = `${cityEl.value.trim()},${stateEl.value.trim()},${zipEl.value.trim()}`
+    console.log(`the Script is inside getCurrentLocationAPI to get the current ${userCurrentPerm}`);
+    //var requestUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=${apiKey.mapQuestKey}&location=${userCurrentPerm}`;
+   var requestUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=vWzHFILMQOPgQjlt4C8DWFxfHDsrfaPR&location=${userCurrentPerm}`;
+
 
     fetch(requestUrl)
       .then(function(response) {
