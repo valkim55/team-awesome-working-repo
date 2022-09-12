@@ -6,7 +6,6 @@
 
 
 # Numerous always-ignore extensions
-
 *.diff
 *.err
 *.log
@@ -17,6 +16,7 @@
 *.vi
 *.zip
 *~
+apiKeys.json
 
 
 
