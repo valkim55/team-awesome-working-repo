@@ -19,7 +19,7 @@
     
     <main>
         <!-- section for the homepage -->
-        <div>
+        <section>
             <h2>Welcome</h2>
             <p>Thanks for trying our app! Enter your name below to get started.</p>
 
@@ -27,12 +27,46 @@
             <input type="text" placeholder="Enter Your Name" />
             <button type="button">Get Started</button>
 
-        </div>
+        </section>
 
         <!-- section for Form page-->
-        <div style="display:none;"> <!-- should this be "hidden"? -->
+        <section style="display:block;"> <!-- should this be "hidden"? -->
             <h2>Search</h2>
-        </div>
+        </section>
+
+        <!-- section for Results page -->
+        <section style="display:block;">
+            <h2>Places</h2>
+            
+            <!-- input for searching map locations and selecting an address -->
+            <div>
+                <p>What's your current location?</p>
+                <input type="search" id="current-search-location" placeholder="Search for a location" />
+            </div>
+            
+            <!-- dropdown for selecting a radius of how far you're willing to travel -->
+            <div>
+                <p>How far would you like to go?</p>
+                <select class="select-dropdown">
+                    <option value="" disabled selected>Select a distance</option>
+                    <option value="1 mile">1 mile</option>
+                    <option value="5 miles">5 miles</option>
+                    <option value="50 miles">50 miles</option>
+                    <option value="100 miles">100 miles</option>
+                    <option value="250 miles">250 miles</option>
+                </select>
+            </div>
+
+            <!-- date picker for day of travel -->
+            <div>
+                <p>Select a date</p>
+                <p>Date: <input type="text" id="datepicker"></p>
+
+            </div>
+
+            <!-- weather preferences to be added here-->
+            
+        </section>
 
 
     </main>
