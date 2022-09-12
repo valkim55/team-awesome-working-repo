@@ -1,5 +1,5 @@
 
-var currentEL = document.querySelector("#current-search-input");
+var currentEL = document.querySelector("#current-search-location");
 
 var radiusLocationEl = document.querySelector("#radius-search-input");
 var searchEl = document.querySelector("#btnSearch");
@@ -18,7 +18,7 @@ function getCurrentLocationAPI() {
   //this function will post users current location and return the its coordinates 
 
   console.log(`the Script is inside getCurrentLocationAPI to get the current ${currentEL.value.trim()}`);
-  var requestUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=vWzHFILMQOPgQjlt4C8DWFxfHDsrfaPR&street=${currentEL.value.trim()}`;
+  var requestUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=vWzHFILMQOPgQjlt4C8DWFxfHDsrfaPR&location=${currentEL.value.trim()}`;
   fetch(requestUrl, { method: 'GET' }) //fetaching all realted area for current location
     .then((response) => response.json())
     .then((data) => {
