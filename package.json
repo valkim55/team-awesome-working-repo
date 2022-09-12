@@ -1,0 +1,21 @@
+{
+  "name": "team-awesome-working-repo",
+  "version": "1.0.0",
+  "description": "# team roles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valkim55/team-awesome-working-repo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/valkim55/team-awesome-working-repo/issues"
+  },
+  "homepage": "https://github.com/valkim55/team-awesome-working-repo#readme",
+  "type": "module"
+}

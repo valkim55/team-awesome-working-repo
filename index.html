@@ -7,25 +7,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day Trip Picker</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
 </head>
 
 <body>
     <header>
+        <!-- need to design persistent header for all pages -->
+        <h1>Day Trip Picker (working name)</h1>
     </header>
     
     <main>
+<<<<<<< HEAD
         <div>
             <form id="location-form">
                 <input name="location" id="location-input" type="text" placeholder="Please Enter location">
                 <button type="submit">Search</button>
             </form>
         </div>
+=======
+        <!-- section for the homepage -->
+        <section>
+            <h2>Welcome</h2>
+            <p>Thanks for trying our app! Enter your name below to get started.</p>
+
+            <p>Name</p>
+            <input type="text" placeholder="Enter Your Name" />
+            <button type="button">Get Started</button>
+
+        </section>
+
+        <!-- section for Form page-->
+        <section style="display:block;"> <!-- should this be "hidden"? -->
+            <h2>Search</h2>
+        </section>
+
+        <!-- section for Results page -->
+        <section style="display:block;">
+            <h2>Places</h2>
+            
+            <!-- input for searching map locations and selecting an address -->
+            <div>
+                <p>What's your current location?</p>
+                <input type="search" id="current-search-location" placeholder="Search for a location" />
+            </div>
+            
+            <!-- dropdown for selecting a radius of how far you're willing to travel -->
+            <div>
+                <p>How far would you like to go?</p>
+                <select class="select-dropdown">
+                    <option value="" disabled selected>Select a distance</option>
+                    <option value="1 mile">1 mile</option>
+                    <option value="5 miles">5 miles</option>
+                    <option value="50 miles">50 miles</option>
+                    <option value="100 miles">100 miles</option>
+                    <option value="250 miles">250 miles</option>
+                </select>
+            </div>
+
+            <!-- date picker for day of travel -->
+            <div>
+                <p>Select a date</p>
+                <p>Date: <input type="text" id="datepicker"></p>
+
+            </div>
+
+            <!-- weather preferences to be added here-->
+            <div>
+                <p>What's your preferred weather?</p>
+                <!-- add sliders here -->
+                <!-- add % cloudy here -->
+            </div>
+        </section>
+
+
+>>>>>>> 647548ac12cc2017c89d590390ff0ee994d2c460
     </main>
 
     <footer>
     </footer>
 
+<<<<<<< HEAD
     <script src="./assets/js/weatherSript.js"></script>
+=======
+    <!--<script src="./assets/js/script.js"></script>
+    <script src="./assets/js/mapScript.js" type="module"></script>-->
+    <script src="./assets/js/mapScript.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+>>>>>>> 647548ac12cc2017c89d590390ff0ee994d2c460
 </body>
 
 </html>
