@@ -5,14 +5,9 @@ var radiusLocationEl = document.querySelector("#radius-search-input");
 var searchEl = document.querySelector("#btnSearch");
 
 
-//var latitude; 
-  // var longitude; 
-
 searchEl.addEventListener("click", () => {
    getCurrentLocationAPI(); //get CurrentLocation latitude and longitude 'might not needed when getUserPOIS is build'
-   
-   // getUserPOIS(latitude,longitude); //get POIS based on latitude and longitude
-  // getTOMUserPOIS();
+
 })
 
 

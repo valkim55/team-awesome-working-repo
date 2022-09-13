@@ -24,6 +24,8 @@ user completes a form:
 - Bootstrap and one other framework
 - jQuery for dropdowns
 - Google and Apple fonts for primary and fallback
+- MapQuest API
+- TomTom API
 # Infomation about API Keys
 All api keys are stored in apiKeys.json document which is ignored in git that way the sensitive keys will not be upload to public. So for your to debug or run locally you will have to create apiKeys.json in environmentDoc folder. 
 Look at the ReadMe.md file in environmentDoc folder to learn how to set-up.
