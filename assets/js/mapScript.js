@@ -5,14 +5,41 @@ var radiusLocationEl = document.querySelector("#radius-search-input");
 var searchEl = document.querySelector("#btnSearch");
 
 var latitude = null;
-var longitude = null;
+var latitude = null;
 
 
 searchEl.addEventListener("click", () => {
   latitude = null; longitude = null;
   getCurrentLocationAPI();
+ 
+ getUserPOI(latitude,latitude);
 
 })
+
+function getUserPOI(latitude,latitude){
+  console.log(`the Script is inside getCurrentLocationAPI to get the current ${currentEL.value.trim()}`);
+  var requestUrl = `http://www.mapquestapi.com/search/v2/radius?key=vWzHFILMQOPgQjlt4C8DWFxfHDsrfaPR&maxMatches=4&origin=39.750307,-104.999472&units[m]=10
+  &hostedData=mqap.ntpois|group_sic_code_name=Farms`;
+  fetch(requestUrl, { method: 'GET' }) //fetaching all realted area for current location
+    .then((response) => response.json())
+    .then((data) => {
+      for (var i = 0; i < data.searchResults.length; i++) {
+        console.log("inside the loop to get latitude and longitude of user input POI" + data);
+ 
+      }
+      console.log(`Current location latitude is ${latitude} and longitude is ${longitude}`);
+      return latitude && longitude;
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      return error; 
+    });
+
+}
+
+
+
+
 
 function getCurrentLocationAPI() {
   //this function will post users current location and return the its coordinates 
