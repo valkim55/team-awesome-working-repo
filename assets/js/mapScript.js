@@ -1,13 +1,12 @@
 
 var currentEL = document.querySelector("#current-search-location");
 
-var radiusLocationEl = document.querySelector("#radius-search-input");
-var searchEl = document.querySelector("#btnSearch");
+var radiusLocationEl = document.querySelector("#radius-search-dropdown");
+var searchEl = document.querySelector("#location-submit");
 
 
 searchEl.addEventListener("click", () => {
    getCurrentLocationAPI(); //get CurrentLocation latitude and longitude 'might not needed when getUserPOIS is build'
-
 })
 
 
