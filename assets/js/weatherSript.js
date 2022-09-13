@@ -29,13 +29,18 @@ var submitWeatherHandler = function(event) {
     var userCloudValue = cloudForm.options[cloudForm.selectedIndex].value;
     var userHumidValue = humidForm.options[humidForm.selectedIndex].value;
     var userRainValue = rainForm.options[rainForm.selectedIndex].value;
-    console.log(userTempValue, userCloudValue, userHumidValue, userRainValue);
-    
+    //console.log(userTempValue, userCloudValue, userHumidValue, userRainValue);
+    console.log(userTempValue);
+
     // create an IF statement to check if the option was actually selected, if not show a modal?
-    getTemp(userTempValue);
-    //getCLoud(userCloudValue);
-    //getHumid(userHumidValue);
-    //getRain(userRainValue);
+    if (!userTempValue) {
+        alert('You have to make all 4 selections. Please try again');
+    } else {
+        getTemp(userTempValue);
+        //getCLoud(userCloudValue);
+        //getHumid(userHumidValue);
+        //getRain(userRainValue);
+    }
 
 };
 
@@ -65,18 +70,38 @@ var weatherCall = function(newLon, newLat) {
 }
 
 
-// get temp for requested location and temp range
-var getTemp = function(geoLocation, userTempValue) {
+// get temp for requested temp range
+var getTemp = function(userTempValue) {
 
-    //var option1 = tempForm.options[tempForm.selectedIndex];
     console.log(tempForm.selectedIndex); // shows index number of selected option
     console.log(tempForm.options[tempForm.selectedIndex].value); // shows value of the selected option
-    console.log(tempForm.options[1].value); // shows the value of the first option in the html list
+    //console.log(tempForm.options[3].value); // shows the value of the Nth option in the html list
+    
+    switch(userTempValue) {
+        case userTempValue = tempForm.options[1].value:
+            console.log('user chose first option');
+            break;
 
-    if (userTempValue = tempForm.options[1].value) {
-        console.log('user chose first option');
+        case userTempValue = tempForm.options[2].value:
+            console.log('user chose second option');
+            break;
+
+        case userTempValue = tempForm.options[3].value:
+            console.log('user chose third option');
+            break;
+
+        case userTempValue = tempForm.options[4].value:
+            console.log('user chose fourth option');
+            break;
+
+        case userTempValue = tempForm.options[5].value:
+            console.log('user chose fifth option');
+            break;
+
+        default:
+            console.log('something went wrong');
     }
-}
+};
 
 
 
