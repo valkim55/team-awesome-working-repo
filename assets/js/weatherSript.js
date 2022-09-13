@@ -1,59 +1,53 @@
-console.log("Hello World!!!")
+console.log("weatherrr")
 
 var apiKey = '13765804293c80fb9eac8b6b1d0beeb5';
-var locationName; // will store user input based on location
-var locationForm = document.querySelector('#location-form');
-var locationInput = document.querySelector('#location-input');
 
-var submitLocationInput = function(event) {
+var locationName; // whatever location i'll get from Kabir
+var lon; // getting geo coordinates from Kabir
+var lat;
+
+// variables for temperature parameters forms to filter weather data
+var tempForm = document.querySelector("#temp-selection");
+
+
+var cloudForm = document.querySelector("#cloud-selection");
+var humidForm = document.querySelector("#humid-selection");
+var rainForm = document.querySelector("#precipitation-selection");
+var weatherButton = document.querySelector("#weather-submit");
+
+
+
+
+
+
+
+var submitWeatherHandler = function(event) {
     event.preventDefault();
-    locationName = locationInput.value.trim();
-    console.log('user entered: ' + locationName);
-    firstCall(locationName);
-};
 
-var firstCall = function(location) {
+    // capture user's selection
+    var userTempValue = tempForm.options[tempForm.selectedIndex].value;
+    var userCloudValue = cloudForm.options[cloudForm.selectedIndex].value;
+    var userHumidValue = humidForm.options[humidForm.selectedIndex].value;
+    var userRainValue = rainForm.options[rainForm.selectedIndex].value;
+    console.log(userTempValue, userCloudValue, userHumidValue, userRainValue);
     
-    // check if the input isn't empty string and make a call
-    if (locationName) {
-        var firstURL = 'https://api.openweathermap.org/data/2.5/weather?q='+locationName+'&appid='+apiKey+'&units=imperial';
-        fetch(firstURL).then(function(response) {
-            // check if entered location name actually exists
-            if(response.ok) {
-                response.json().then(function(data) {
-                    // call getGeoLocation to get longitude and latitude for the precise weather at a requested location
-                    console.log(data);
-                    getGeoLocation(locationName, data);
-                });
-            } else {
-                alert('sorry, location with this name not found');
-            }
-        })
-        // show an alert in case there's network error
-        .catch(function(error) {
-            alert('unable to connect to server. try again later');
-        })
-        // empty the input field
-        locationInput.value = '';
+    // create an IF statement to check if the option was actually selected, if not show a modal?
+    getTemp(userTempValue);
+    //getCLoud(userCloudValue);
+    //getHumid(userHumidValue);
+    //getRain(userRainValue);
 
-    // show an alert if user submits empty field    
-    } else {
-        alert('Please enter a location name');
-    }
-    
 };
 
 var getGeoLocation = function(locationName, data) {
-    var lon = data.coord.lon;
-    var lat = data.coord.lat;
-    // round these values to two decimals to re-use in the secondCall
+    // converting Kabir's coordinates for my api call
     var newLon = Math.round(lon *100)/100;
     var newLat = Math.round(lat *100)/100;
     console.log('this is geo coordinates for: '+ locationName + ' ' + newLon + ' ' + newLat);
-    secondCall(newLon, newLat);
+    weatherCall(newLon, newLat);
 };
 
-var secondCall = function(newLon, newLat) {
+var weatherCall = function(newLon, newLat) {
     var secondURL = 'https://api.openweathermap.org/data/3.0/onecall?lat='+newLat+'&lon='+newLon+'&units=imperial&exclude=minutely&appid='+apiKey;
     fetch(secondURL).then(function(response) {
         if(response.ok) {
@@ -70,16 +64,51 @@ var secondCall = function(newLon, newLat) {
     });
 }
 
-// this is where we're extracting weather conditions from
-var getParameters = function(locationName, weatherInfo) {
 
-    var currTemp = weatherInfo.current.temp; // in F
-    var currClouds = weatherInfo.current.clouds; //cloudiness in %
-    var currHumidity = weatherInfo.current.humidity; // in %
-    var currRain = weatherInfo.current.rain; // if available shows in volume mm
+// get temp for requested location and temp range
+var getTemp = function(geoLocation, userTempValue) {
+
+    //var option1 = tempForm.options[tempForm.selectedIndex];
+    console.log(tempForm.selectedIndex); // shows index number of selected option
+    console.log(tempForm.options[tempForm.selectedIndex].value); // shows value of the selected option
+    console.log(tempForm.options[1].value); // shows the value of the first option in the html list
+
+    if (userTempValue = tempForm.options[1].value) {
+        console.log('user chose first option');
+    }
+}
+
+
+
+
+// get cloudiness for requested location and range
+var getCLoud = function(geoLocation, userCloudValue) {
 
 }
 
 
 
-locationForm.addEventListener("submit", submitLocationInput);
+// get humidity for selected location and range
+var getHumid = function(geoLocation, userHumidValue) {
+
+}
+
+
+
+
+// get precipitation for selected location and boolean
+var getRain = function(geoLocation, userRainValue) {
+
+}
+
+
+// put all parameters in one function to call
+var getAllWeather = function() {
+
+    
+
+}
+
+
+
+weatherButton.addEventListener("click", submitWeatherHandler);

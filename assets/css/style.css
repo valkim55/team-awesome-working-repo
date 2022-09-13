@@ -5,7 +5,7 @@ body{
     background-color: #F2EBE9;
 }
 /*CSS vaule for middleContainer postion and style*/
-button{
+/* button{
     background-color: #277BC0;
     color: white;
     display: block;
@@ -19,4 +19,32 @@ button{
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
   
-    }
+} */
+
+main {
+    width: 95%;
+    margin: auto;
+}
+
+.main-section {
+    display: flex;
+    justify-content: space-around;
+}
+
+.all-forms {
+    border: 2px solid blue;
+    margin: 20px 10px;
+    padding: 10px;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+button {
+   
+}
