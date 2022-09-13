@@ -12,14 +12,15 @@ searchEl.addEventListener("click", () => {
   latitude = null; longitude = null;
   getCurrentLocationAPI();
  
- getUserPOI(latitude,latitude);
+ getUserPOIS(latitude,latitude);
 
 })
 
-function getUserPOI(latitude,latitude){
+function getUserPOIS(latitude,latitude){
   console.log(`the Script is inside getCurrentLocationAPI to get the current ${currentEL.value.trim()}`);
-  var requestUrl = `http://www.mapquestapi.com/search/v2/radius?key=vWzHFILMQOPgQjlt4C8DWFxfHDsrfaPR&maxMatches=4&origin=39.750307,-104.999472&units[m]=10
-  &hostedData=mqap.ntpois|group_sic_code_name=Farms`;
+
+  var requestUrl = `http://www.mapquestapi.com/search/v2/radius?key=vWzHFILMQOPgQjlt4C8DWFxfHDsrfaPR&Matches=4&origin=${latitude},${longitude}&hostedData=mqap.ntpois|ntpois.group_sic_code_name=Farms`;
+
   fetch(requestUrl, { method: 'GET' }) //fetaching all realted area for current location
     .then((response) => response.json())
     .then((data) => {
