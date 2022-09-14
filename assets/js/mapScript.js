@@ -77,3 +77,5 @@ function getTOMUserPOIS(latitude,longitude){
     });
 
 }
+
+//
