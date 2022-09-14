@@ -1,17 +1,32 @@
-var currentEL = document.querySelector("#current-search-location");
 
+
+var currentEL = document.querySelector("#city-search-input");
 var radiusLocationEl = document.querySelector("#radius-search-dropdown");
 var searchEl = document.querySelector("#location-submit");
+var calendarEL =document.querySelector("#calendar")
 
+var errorEl = document.querySelector(".errorMessage")
 
 searchEl.addEventListener("click", () => {
-   getCurrentLocationAPI(); //get CurrentLocation latitude and longitude 'might not needed when getUserPOIS is build'
+ console.log(`inside searchEl.addEventListener`)
+
+ console.log(radiusLocationEl.value);
+
+
+  if(currentEL.value != ""){                      //verifying that CurrentLocation have vaule
+    errorEl.style.setProperty("visibility", "hidden");
+    getCurrentLocationAPI();
+  }else{
+    errorEl.style.setProperty("visibility", "visible");  //if CurrentLocation have vaule is "" will set style "visibility" to "visible"
+  }
 })
+
 
 
 function getCurrentLocationAPI() {
   //this function will post users current location and return the its coordinates 
-  console.log(`the Script is inside getCurrentLocationAPI to get the current ${currentEL.value.trim()}`);
+  
+  console.log(`the script is inside getCurrentLocationAPI to get the current ${currentEL.value.trim()}`);
   var currentLocrequestUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=vWzHFILMQOPgQjlt4C8DWFxfHDsrfaPR&location=${currentEL.value.trim()}`;
   fetch(currentLocrequestUrl, { method: 'GET' }) //fetaching all realted area for current location
     .then((response) => response.json())
@@ -54,6 +69,10 @@ function getCurrentLocationAPI() {
     });
 }*/
 
+
+var locationRespons = []; //store the radius from getTOMUserPOIS Respons
+
+
 function getTOMUserPOIS(latitude,longitude){
       //this will get POIS based from TomTom map
   console.log(`the Script is inside getUserPOIS to get the current`);
@@ -64,10 +83,17 @@ function getTOMUserPOIS(latitude,longitude){
     .then((response) => response.json())
     .then((data) => {
       for (var i = 0; i < data.results.length; i++) {
-          //-TO-DO-: after I get the data I will store it in an array for and display in the UI
-        console.log("inside the loop to get latitude and longitude of user input POI" + data.results[i]);
- 
+          var locationobj ={
+            city: data.results[i].address.localName,
+            state: data.results[i].address.municipality,
+            latLng: [
+                     data.results[i].position.lat,
+                     data.results[i].position.lon
+                    ]
+          }
+          locationRespons.push(locationobj);
       }
+      console.log(locationRespons);
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -75,3 +101,51 @@ function getTOMUserPOIS(latitude,longitude){
     });
 
 }
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Functions to open and close a modal
+  function openModal($el) {
+    $el.classList.add('is-active');
+  }
+
+  function closeModal($el) {
+    $el.classList.remove('is-active');
+  }
+
+  function closeAllModals() {
+    (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+      closeModal($modal);
+    });
+  }
+
+  // Add a click event on buttons to open a specific modal
+  (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+    const modal = $trigger.dataset.target;
+    const $target = document.querySelector(".modal");
+
+    $trigger.addEventListener('click', () => {
+      openModal($target);
+    });
+  });
+
+  // Add a click event on various child elements to close the parent modal
+  (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
+    const $target = $close.closest('.modal');
+
+    $close.addEventListener('click', () => {
+      closeModal($target);
+    });
+  });
+
+  // Add a keyboard event to close all modals
+  document.addEventListener('keydown', (event) => {
+    const e = event || window.event;
+
+    if (e.keyCode === 27) { // Escape key
+      closeAllModals();
+    }
+  });
+});
