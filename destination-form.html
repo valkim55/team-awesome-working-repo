@@ -1,65 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Set a destination</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
+        integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link class="tabIcon" rel="icon" type="image/x-icon" href="./assets/images/favicon.png" alt="gofavicon"> </link>
+    <link class="tabIcon" rel="icon" type="image/x-icon" href="./assets/images/favicon.png" alt="gofavicon">
+    </link>
 </head>
+
 <body>
     <header>
         <!-- need to design persistent header for all pages -->
-        <div class="text-center m-2 py-3"><h1>Let's pick a destination!</h1></div> <!-- (working name) -->
+        <div class="text-center m-2 py-3">
+            <h1>Let's pick a destination!</h1>
+        </div> <!-- (working name) -->
     </header>
 
     <main>
         <section class="row min-vh-100 main-section">
-            <!-- section for Form page--> 
+            <!-- section for Form page-->
             <section class="col-12 col-md-8 col-lg-10">
                 <div class="all-forms">
                     <form id="location-form">
-                        <label name="location" class="label"><span class="icon is-medium is-left"><i class="fa-solid fa-location-crosshairs"></i></span> Please enter your starting location: </label>
-                        <input name="location" id="location-input" type="text" class="input is-info is-normal is-rounded" placeholder="City, State or Zip">
-                        <button type="submit" id="location-submit" class="button is-link is-outlined is-rounded is-light is-normal">Next</button>
+                        <label name="location" class="label"><span class="icon is-medium is-left"><i
+                                    class="fa-solid fa-location-crosshairs"></i></span> Please enter your starting
+                            location: </label>
+                        <input name="location" id="location-input" type="text"
+                            class="input is-info is-normal is-rounded" placeholder="City, State or Zip">
+                        <button type="submit" id="location-submit"
+                            class="button is-link is-outlined is-rounded is-light is-normal">Next</button>
                     </form>
                 </div>
-            
-            
+
+
                 <!-- dropdown for selecting a radius of how far you're willing to travel -->
                 <div class="all-forms">
-                    <h4><span class="icon is-medium is-left"><i class="fa-solid fa-car"></i></span>How far would you like to go?</h4>
+                    <h4><span class="icon is-medium is-left"><i class="fa-solid fa-car"></i></span>How far would you
+                        like to go?</h4>
                     <select class="select-dropdown">
                         <option value="" disabled selected>Select a distance</option>
-                        <option value="1 mile">1 mile</option>
-                        <option value="5 miles">5 miles</option>
-                        <option value="50 miles">50 miles</option>
-                        <option value="100 miles">100 miles</option>
-                        <option value="250 miles">250 miles</option>
+                        <option value="1">1 mile</option>
+                        <option value="5">5 miles</option>
+                        <option value="50">50 miles</option>
+                        <option value="100">100 miles</option>
+                        <option value="250">250 miles</option>
                     </select>
                 </div>
 
                 <!-- date picker for day of travel -->
                 <div class="all-forms">
-                    <h4><span class="icon is-medium is-left"><i class="fa-solid fa-calendar"></i></span>When would you like to go?</h4>
-                    <div id="calendar">
-                        <p>Select a date</p>
-                        <p>Date: <input type="text" id="datepicker"></p>
-                    </div>
+                    <h4><span class="icon is-medium is-left"><i class="fa-solid fa-calendar"></i>
+                        </span>When would you like to go?
+                    </h4>
 
+                    <div id="calendar">
+                        <div class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <p class="image is-4by3">
+                                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="">
+                                </p>
+                            </div>
+                            
+                            <button class="modal-close is-large" aria-label="close"></button>
+                        </div>
+                    </div>
                 </div>
-            </section>  
+            </section>
         </section>
     </main>
 
     <script src="./assets/js/weatherSript.js"></script>
     <!--<script src="./assets/js/script.js"></script>
     <script src="./assets/js/mapScript.js" type="module"></script>-->
-    <script src="./assets/js/mapScript.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="./assets/js/mapScript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
