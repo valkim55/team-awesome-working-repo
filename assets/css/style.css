@@ -48,3 +48,9 @@ input {
 button {
    
 }
+
+.errorMessage{
+    font: italic;
+    color: red;
+    visibility: hidden;
+}
