@@ -69,8 +69,8 @@ function getCurrentLocationAPI() {
     });
 }*/
 
-//array of questions
-var locationRespons = [];
+
+var locationRespons = []; //store the radius from getTOMUserPOIS Respons
 
 
 function getTOMUserPOIS(latitude,longitude){
