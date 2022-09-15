@@ -4,7 +4,6 @@ var currentEL = document.querySelector("#city-search-input");
 var radiusLocationEl = document.querySelector("#radius-search-dropdown");
 var searchEl = document.querySelector("#location-submit");
 var calendarEL = document.querySelector("#calendar");
-var eventListEL = document.querySelectorAll("#eventList");
 var stud = document.querySelector ("#stud");
 
 //error Selector
@@ -112,13 +111,19 @@ stud.addEventListener("click", () =>{
 
   displayEndResults();
 })
+
+
+var eventListEL = document.querySelectorAll("eventList");
 function displayEndResults(){
+  
   for(var i = 0;i<locationResponse.length; i++){
     var listItem = document.createElement('li');
-    var itemToDisplay = `${locationResponse[i].city}, ${locationResponse[i].state} ${locationResponse[i].distance.slice(0, 4)}mi`
-    listItem.textContent = itemToDisplay;
-    eventListEL.appendChild(listItem).html;
+    var itemToDisplay = `${locationResponse[i].city}, ${locationResponse[i].state} ${locationResponse[i].distance.slice(0, 4)} mi`;
+   console.log(itemToDisplay);
+    listItem.textContent = `${locationResponse[i].city}, ${locationResponse[i].state} ${locationResponse[i].distance.slice(0, 4)} mi`;
+    eventListEL.appendChild(listItem);
   }
+
 }
 
 
