@@ -72,7 +72,9 @@ button {
     margin-top: 30px;
 }
 
-.errorMessage{
+.errorMessage, #locationError
+#radiusError,
+#selectingDateError{
     font: italic;
     color: red;
     visibility: hidden;

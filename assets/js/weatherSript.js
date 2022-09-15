@@ -356,4 +356,4 @@ var userRainSelection = function(userRainValue) {
 
 
 
-weatherButton.addEventListener("click", submitWeatherHandler);
+//weatherButton.addEventListener("click", submitWeatherHandler);
