@@ -117,7 +117,7 @@ function displayEndResults(){
     var listItem = document.createElement('li');
     var itemToDisplay = `${locationResponse[i].city}, ${locationResponse[i].state} ${locationResponse[i].distance.slice(0, 4)}mi`
     listItem.textContent = itemToDisplay;
-    eventListEL.appendChild(listItem).html;
+    eventListEL.append(listItem);
   }
 }
 
