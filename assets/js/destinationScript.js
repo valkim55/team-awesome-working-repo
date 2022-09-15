@@ -117,9 +117,7 @@ function displayEndResults(){
     var listItem = document.createElement('li');
     var itemToDisplay = `${locationRespons[i].city}, ${locationRespons[i].state} ${locationRespons[i].distance.slice(0, 4)}mi`
     listItem.textContent = itemToDisplay;
-   // console.log(`your city for this i is ${locationRespons[i].city}`)
     eventListEL.appendChild(listItem);
-   
   }
 }
 
