@@ -64,7 +64,7 @@ function getCurrentLocationAPI() {
 
 }
 
-var locationRespons = []; //store the radius from getTOMUserPOIS Respons
+var locationResponse = []; //store the radius from getTOMUserPOIS Response
 
 function getTOMUserPOIS(latitude, longitude) {
   //this will get POIS based from TomTom map
@@ -95,10 +95,10 @@ function getTOMUserPOIS(latitude, longitude) {
           ],
           distance: `${data.results[i].dist*0.000621371192}` //converting the distance back to mile for the UI
         }
-        locationRespons.push(locationobj);
+        locationResponse.push(locationobj);
        
       }
-        console.log(locationRespons);
+        console.log(locationResponse);
         
     })
     .catch((error) => {
@@ -113,11 +113,11 @@ stud.addEventListener("click", () =>{
   displayEndResults();
 })
 function displayEndResults(){
-  for(var i = 0;i<locationRespons.length; i++){
+  for(var i = 0;i<locationResponse.length; i++){
     var listItem = document.createElement('li');
-    var itemToDisplay = `${locationRespons[i].city}, ${locationRespons[i].state} ${locationRespons[i].distance.slice(0, 4)}mi`
+    var itemToDisplay = `${locationResponse[i].city}, ${locationResponse[i].state} ${locationResponse[i].distance.slice(0, 4)}mi`
     listItem.textContent = itemToDisplay;
-    eventListEL.appendChild(listItem);
+    eventListEL.appendChild(listItem).html;
   }
 }
 

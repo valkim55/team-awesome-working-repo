@@ -60,7 +60,7 @@ user completes a form:
 All api keys are stored in apiKeys.json document which is ignored in git that way the sensitive keys will not be upload to public. So for your to debug or run locally you will have to create apiKeys.json in environmentDoc folder. 
 Look at the ReadMe.md file in environmentDoc folder to learn how to set-up.
 ### How would you use it in your script
-1. You will have to import the document to your script by useing 
+1. You will have to import the document to your script by using 
 ```
        1. import * as apiKeys from '../environmentDoc/apiKeys.json'; 
 ```
