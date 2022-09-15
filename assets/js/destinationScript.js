@@ -91,7 +91,7 @@ function getTOMUserPOIS(latitude,longitude){
   console.log(`the Script is inside getUserPOIS ${latitude && longitude}`);
   var convertToKm = radiusLocationEl.value * 1.60934;
   var km = convertToKm.toString().replace(/[|&;$%@"<>()+,.]/g, "");
-  if(radiusLocationEl.value <= 10)
+  if(radiusLocationEl.value < 9)
   {
     limit = 10-parseInt(radiusLocationEl.value);
   }else{
