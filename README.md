@@ -1,14 +1,45 @@
 # team-awesome-working-repo
 
+# Deployed 
+```
+        <Entert URL here >
+```
+
+# User Story
+```
+  A user is bored and wants to be spontaneous. So the user wants to use an app where it shows them activities near them or a certain radius and based on weather type
+
+
+user = consumer who wants to find a location for a day trip, based on their preferences (current geo, weather, travel distance (miles or hours?), things to do / events)
+```
+
+# Acceptance Criteria
+## MVP:
+```
+GIVEN I am on home page
+WHEN I eneter my name
+THEN app will personalize interaction with me
+GIVEN I am on destination page
+WHEN I eneter my location, select radius and date
+THEN I will be asked to input my weather perference
+WHEN I fill up destination and weather perference 
+THEN System will find location I can visit and give me city name, mile, weather and activity.
+WHEN I click on tap suggestion modules
+THEN modules will expend
+
+```
+## Post MVP
+```
+WHEN I click on 'GO' in suggestion modules
+THEN Display map, and activity list pin
+AND Display Transportation and its ETA to the destinations
+
+```
 # team roles
 
 
-# product summary
-trip destination planner app, "pick a place to go"
 
-user = consumer who wants to find a location for a day trip, based on their preferences (current geo, weather, travel distance (miles or hours?), things to do / events)
-
-# features / user stories
+# features
 user completes a form:
 - current location (input address in Google Maps lookup. Save in local storage for easy future search?)
 - calendar (date picker?)
