@@ -4,7 +4,8 @@ var currentEL = document.querySelector("#city-search-input");
 var radiusLocationEl = document.querySelector("#radius-search-dropdown");
 var searchEl = document.querySelector("#location-submit");
 var calendarEL = document.querySelector("#calendar");
-var eventListEL = document.getElementsByClassName("eventList");
+var eventListEL = document.querySelectorAll("#eventList");
+var stud = document.querySelector ("#stud");
 
 //error Selector
 var errorEl = document.querySelector(".errorMessage");
@@ -92,11 +93,13 @@ function getTOMUserPOIS(latitude, longitude) {
             data.results[i].position.lat,
             data.results[i].position.lon
           ],
-          distance: `${data.results[i].dist*0.000621371192} mi` //converting the distance back to mile for the UI
+          distance: `${data.results[i].dist*0.000621371192}` //converting the distance back to mile for the UI
         }
         locationRespons.push(locationobj);
+       
       }
         console.log(locationRespons);
+        
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -105,17 +108,23 @@ function getTOMUserPOIS(latitude, longitude) {
 
 }
 
+stud.addEventListener("click", () =>{
+
+  displayEndResults();
+})
 function displayEndResults(){
   for(var i = 0;i<locationRespons.length; i++){
     var listItem = document.createElement('li');
-    listItem.textContent = `${locationRespons[i].city}, ${locationRespons[i].municipality}, ${locationRespons[i].distance}`
+    var itemToDisplay = `${locationRespons[i].city}, ${locationRespons[i].state} ${locationRespons[i].distance.slice(0, 4)}mi`
+    listItem.textContent = itemToDisplay;
+   // console.log(`your city for this i is ${locationRespons[i].city}`)
     eventListEL.appendChild(listItem);
    
   }
 }
 
 
-
+/*STart of Date picker*/
 document.addEventListener('DOMContentLoaded', () => {
   // Functions to open and close a modal
   function openModal($el) {
