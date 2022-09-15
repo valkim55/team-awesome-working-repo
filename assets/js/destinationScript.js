@@ -60,29 +60,6 @@ function getCurrentLocationAPI() {
 
 }
 
-
-/*function getUserPOIS(latitude,longitude){
- 
-  console.log(`the Script is inside getUserPOIS to get the current`);
-  console.log(`the Script is inside getUserPOIS ${latitude && longitude}`);
-  var poisRequestUrl = `http://www.mapquestapi.com/search/v2/radius?key=vWzHFILMQOPgQjlt4C8DWFxfHDsrfaPR&Matches=4&origin=${latitude},${longitude}&hostedData=mqap.ntpois|ntpois.group_sic_code_name=Farms`;
-  //-TO-DO-
-  fetch(poisRequestUrl, { method: 'GET' }) //fetaching all realted area for current location which user might be Interest in
-    .then((response) => response.json())
-    .then((data) => {
-      for (var i = 0; i < data.searchResults.length; i++) {
-          //-TO-DO-: after I get the data I will store it in an array for and display in the UI
-        console.log("inside the loop to get latitude and longitude of user input POI" + data);
- 
-      }
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-      return error; 
-    });
-}*/
-
-
 var locationRespons = []; //store the radius from getTOMUserPOIS Respons
 var limit;
 function getTOMUserPOIS(latitude, longitude) {
