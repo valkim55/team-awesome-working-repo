@@ -136,4 +136,4 @@ var getAllWeather = function() {
 
 
 
-weatherButton.addEventListener("click", submitWeatherHandler);
+//weatherButton.addEventListener("click", submitWeatherHandler);
