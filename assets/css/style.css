@@ -1,25 +1,22 @@
 * {
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif
 }
 body{
     background-color: #F2EBE9;
 }
-/*CSS vaule for middleContainer postion and style*/
-/* button{
-    background-color: #277BC0;
-    color: white;
-    display: block;
-    line-height: 1.5;
-    border-radius: 0.25rem;
-    width: 100%;
+
+.homepage-header {
+    padding: 30px;
+    text-shadow: 2px 2px darkgrey;
+    border: 2px solid green;
     text-align: center;
+}
 
-    font-weight: 400;
-
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-  
-} */
+.hero {
+    background-image: url(../images/hero-img.jpg);
+    background-size: cover;
+}
 
 main {
     width: 95%;
@@ -32,9 +29,30 @@ main {
 }
 
 .all-forms {
-    border: 2px solid blue;
-    margin: 20px 10px;
-    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.destination-forms {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.weather-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.form-box {
+    width:max-content;
+    border: 2px solid green;
+    border-radius: 10px; 
+    margin-top: 50px; 
+    box-shadow: 9px 8px lightgreen;
+    padding: 15px;
 }
 
 label {
@@ -46,7 +64,12 @@ input {
 }
 
 button {
-   
+   margin: 20px 20px 20px 0;
+}
+
+.extra-btn {
+    text-align: right;
+    margin-top: 30px;
 }
 
 .errorMessage{
