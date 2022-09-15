@@ -4,9 +4,9 @@ This folder is used to store, server key such as {map quest api key} under a fil
 ### Format 
     ```
     {
-        "mapQuestKey": <Eneter Your Key>,
-        "openWeather": <Eneter Your Key>,
-        "otherKey": <Eneter Your Key>
+        "mapQuestKey": <Enter Your Key>,
+        "openWeather": <Enter Your Key>,
+        "otherKey": <Enter Your Key>
     }
     ```
 

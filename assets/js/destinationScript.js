@@ -4,6 +4,8 @@ var currentEL = document.querySelector("#city-search-input");
 var radiusLocationEl = document.querySelector("#radius-search-dropdown");
 var searchEl = document.querySelector("#location-submit");
 var calendarEL = document.querySelector("#calendar");
+var eventListEL = document.querySelectorAll("#eventList");
+var stud = document.querySelector ("#stud");
 
 //error Selector
 var errorEl = document.querySelector(".errorMessage");
@@ -33,6 +35,8 @@ searchEl.addEventListener("click", () => {
   } else {
     errorEl.style.setProperty("visibility", "hidden");
     getCurrentLocationAPI();
+
+  
   }
 })
 
@@ -60,12 +64,13 @@ function getCurrentLocationAPI() {
 
 }
 
-var locationRespons = []; //store the radius from getTOMUserPOIS Respons
-var limit;
+var locationResponse = []; //store the radius from getTOMUserPOIS Response
+
 function getTOMUserPOIS(latitude, longitude) {
   //this will get POIS based from TomTom map
   console.log(`the Script is inside getUserPOIS to get the current`);
-  console.log(`the Script is inside getUserPOIS ${latitude && longitude}`);
+
+  var limit;
   var convertToMeters = radiusLocationEl.value * 1609.344; //have to convert mile to meters for api radius parameters
   var meters = convertToMeters.toString().replace(/[|&;$%@"<>()+,.]/g, ""); //have to remove '.' from meters for api radius parameters
   if (radiusLocationEl.value < 9) {
@@ -74,7 +79,7 @@ function getTOMUserPOIS(latitude, longitude) {
     limit = parseInt(radiusLocationEl.value) + 10;
   }
 
-  
+  //aip intergration
   var poisRequestUrl = `https://api.tomtom.com/search/2/categorySearch/Beach.json?limit=${parseInt(limit)}&lat=${latitude}&lon=${longitude}&radius=${meters}&view=Unified&relatedPois=off&key=LgN742cN8MR1QMntpr5PgYtQih7dxeGz`;
   fetch(poisRequestUrl, { method: 'GET' }) //fetching all related area for current location which user might be Interest in
     .then((response) => response.json())
@@ -88,11 +93,13 @@ function getTOMUserPOIS(latitude, longitude) {
             data.results[i].position.lat,
             data.results[i].position.lon
           ],
-          distance: `${data.results[i].dist*0.000621371192} mi` //converting the distance back to mile for the UI
+          distance: `${data.results[i].dist*0.000621371192}` //converting the distance back to mile for the UI
         }
-        locationRespons.push(locationobj);
+        locationResponse.push(locationobj);
+       
       }
-        console.log(locationRespons);
+        console.log(locationResponse);
+        
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -101,9 +108,21 @@ function getTOMUserPOIS(latitude, longitude) {
 
 }
 
+stud.addEventListener("click", () =>{
+
+  displayEndResults();
+})
+function displayEndResults(){
+  for(var i = 0;i<locationResponse.length; i++){
+    var listItem = document.createElement('li');
+    var itemToDisplay = `${locationResponse[i].city}, ${locationResponse[i].state} ${locationResponse[i].distance.slice(0, 4)}mi`
+    listItem.textContent = itemToDisplay;
+    eventListEL.appendChild(listItem).html;
+  }
+}
 
 
-
+/*STart of Date picker*/
 document.addEventListener('DOMContentLoaded', () => {
   // Functions to open and close a modal
   function openModal($el) {
