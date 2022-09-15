@@ -174,4 +174,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-/*START OF weatherScript*/
