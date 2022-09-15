@@ -84,12 +84,22 @@ function getCurrentLocationAPI() {
 
 
 var locationRespons = []; //store the radius from getTOMUserPOIS Respons
-
+var limit;
 function getTOMUserPOIS(latitude,longitude){
       //this will get POIS based from TomTom map
   console.log(`the Script is inside getUserPOIS to get the current`);
   console.log(`the Script is inside getUserPOIS ${latitude && longitude}`);
-  var poisRequestUrl = `https://api.tomtom.com/search/2/categorySearch/Beach.json?limit=5&lat=${latitude}&lon=${longitude}&radius=160934&view=Unified&relatedPois=off&key=LgN742cN8MR1QMntpr5PgYtQih7dxeGz`;
+  var convertToKm = radiusLocationEl.value * 1.60934;
+  var km = convertToKm.toString().replace(/[|&;$%@"<>()+,.]/g, "");
+  if(radiusLocationEl.value <= 10)
+  {
+    limit = 10-parseInt(radiusLocationEl.value);
+  }else{
+    limit = parseInt(radiusLocationEl.value) + 10;
+  }
+ 
+
+  var poisRequestUrl = `https://api.tomtom.com/search/2/categorySearch/Beach.json?limit=${parseInt(limit)}&lat=${latitude}&lon=${longitude}&radius=${km}&view=Unified&relatedPois=off&key=LgN742cN8MR1QMntpr5PgYtQih7dxeGz`;
   //-TO-DO-
   fetch(poisRequestUrl, { method: 'GET' }) //fetaching all realted area for current location which user might be Interest in
     .then((response) => response.json())
