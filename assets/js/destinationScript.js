@@ -72,7 +72,6 @@ function getCurrentLocationAPI() {
 
 var locationRespons = []; //store the radius from getTOMUserPOIS Respons
 
-
 function getTOMUserPOIS(latitude,longitude){
       //this will get POIS based from TomTom map
   console.log(`the Script is inside getUserPOIS to get the current`);

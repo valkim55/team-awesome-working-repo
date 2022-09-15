@@ -23,44 +23,43 @@
                 <h4>What are your acceptable weather conditions?</h4>
                 <!-- add sliders here -->
                 <form id="weather-form">
-                    <label name="temp" class="label"><span class="icon is-medium is-left"><i class="fa-solid fa-temperature-quarter"></i></span> Please select the temperature range </label>
+                    <label for="temp-selection" class="label"><span class="icon is-medium is-left"><i class="fa-solid fa-temperature-quarter"></i></span> Please select the temperature range </label>
                     <div class="select is-rounded is normal is-link">
-                        <select id="temp-selection">
-                            <option disabled selected>select...</option>
-                            <option value="higher than 40 less than 50">between 40 and 50 </option>
-                            <option value="higher than 50 less than 60">between 50 and 60 </option>
-                            <option value="higher than 60 less than 70">between 60 and 70 </option>
-                            <option value="higher than 70 less than 80">between 70 and 80 </option>
-                            <option value="higher than 80 less than 90">between 80 and 90 </option>
+                        <select id="temp-selection" name="temp">
+                            <option value="selectoption">select option</option>
+                            <option value="higher than 40 less than 55">between 40 and 55 </option>
+                            <option value="higher than 55 less than 70">between 55 and 70 </option>
+                            <option value="higher than 70 less than 85">between 70 and 85 </option>
+                            <option value="higher than 85 less than 100">between 85 and 100 </option>
                         </select>
                     </div>
 
-                    <label name="cloud" class="label"><span class="icon is-medium is-left"><i class="fa-solid fa-cloud"></i></span> Please select acceptable cloudiness </label>
+                    <label for="cloud-selection" class="label"><span class="icon is-medium is-left"><i class="fa-solid fa-cloud"></i></span> Please select acceptable cloudiness </label>
                     <div class="select is-rounded is normal is-link">
-                        <select id="cloud-selection">
-                            <option disabled selected>select...</option>
-                            <option value="higher than 40 less than 50">between 40 and 50 </option>
-                            <option value="higher than 50 less than 60">between 50 and 60 </option>
-                            <option value="higher than 60 less than 70">between 60 and 70 </option>
+                        <select id="cloud-selection" name="cloud">
+                            <option value="selectoption">select option</option>
+                            <option value="between 0 and 40">partly cloudy</option>
+                            <option value="between 40 and 70">mostly cloudy</option>
+                            <option value="between 70 and 100">cloudy</option>
                         </select>
                     </div>
 
-                    <label name="humid" class="label"><span class="icon is-medium is-left"><i class="fa-solid fa-droplet"></i></span> Please select acceptable humidity </label>
+                    <label for="humid-selection" class="label"><span class="icon is-medium is-left"><i class="fa-solid fa-droplet"></i></span> Please select acceptable humidity </label>
                     <div class="select is-rounded is normal is-link">
-                        <select id="humid-selection">
-                            <option disabled selected>select...</option>
-                            <option value="higher than 30 less than 50">between 30 and 50 </option>
-                            <option value="higher than 50 less than 70">between 50 and 70 </option>
-                            <option value="higher than 70 less than 90">between 70 and 90 </option>
+                        <select id="humid-selection" name="humid">
+                            <option value="selectoption">select option</option>
+                            <option value="higher than 30 less than 50">30% - 50% </option>
+                            <option value="higher than 50 less than 70">50% - 70% </option>
+                            <option value="higher than 70 less than 90">70% - 90% </option>
                         </select>
                     </div>
 
-                    <label name="humid" class="label"><span class="icon is-medium is-left"><i class="fa-solid fa-snowflake"></i></span> Do you mind a little rain/snow? </label>
+                    <label for="precipitation-selection" class="label"><span class="icon is-medium is-left"><i class="fa-solid fa-snowflake"></i></span> Do you mind a little rain/snow? </label>
                     <div class="select is-rounded is normal is-link">
-                        <select id="precipitation-selection">
-                            <option disabled selected>select...</option>
-                            <option value="true">surprise me!</option>
-                            <option value="false">not for me! </option>
+                        <select id="precipitation-selection" name="rain-snow">
+                            <option value="selectoption">select option</option>
+                            <option value=true>surprise me!</option>
+                            <option value=false>not for me! </option>
                         </select>
                     </div>
 
@@ -70,15 +69,18 @@
                 </form>
             </div>
 
+
+            <div id="display-results">
+
+            </div>
+
+
         </section>
     </main>
 
-
-
+    <script src="./assets/js/validationScript.js"></script>
+    <script src="./assets/js/destinationScript.js"></script>
     <script src="./assets/js/weatherSript.js"></script>
-    <!--<script src="./assets/js/script.js"></script>
-    <script src="./assets/js/mapScript.js" type="module"></script>-->
-    <script src="./assets/js/mapScript.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>
