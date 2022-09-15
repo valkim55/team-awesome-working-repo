@@ -13,35 +13,33 @@
 </head>
 
 <body>
-    <header>
-        <!-- need to design persistent header for all pages -->
-        <div class="text-center m-2 py-3"><h1>Welcome to Day Trip Picker!</h1></div> <!-- (working name) -->
-    </header>
     
+    <section class="hero is-large">
+        <div class="hero-body">
+            <h1 class="homepage-header">welcome to day trip picker!</h1>
+        </div>
+    </section>
+
     <main>
-        <section class="row min-vh-100 main-section">
-            <!-- section for the homepage -->
-            <section class="col-12 col-md-8 col-lg-10 name-form">
-                <div class="all-forms flex justify-space-around">
-                    <h4>Thanks for trying our app! Enter your name below to get started.</h4>
+    <section class="row min-vh-100 main-section">
+        <!-- section for the homepage -->
+        <section class="col-12 col-md-6 col-lg-8 ">
+            <div class="all-forms ">
+                <div class="form-box">
+                    <h4 class="form-header">Thanks for trying our app! Enter your name below to get started.</h4>
                     <form id="name-form">
                         <label name="name" class="label"><span class="icon is-medium is-left"><i class="fa-regular fa-id-badge"></i></span> Please enter your name: </label>
-                        <input name="name" id="name-input" type="text" class="input is-info is- is-rounded" placeholder="Name"/>
-                        <a href="./destination-form.html" class="button is-link is-outlined is-rounded is-light is-normal">Get Started</a>
+                        <input name="name" id="name-input" type="text" class="input is-focused is-success is- is-rounded" placeholder="Name"/>
+                        <a href="./destination-form.html" class="button is-success is-outlined is-rounded is-light is-normal">Get Started</a>
                     </form>
                 </div>
-            </section>
-
-  
+            </div>
         </section>
+    </section>
     </main>
+    <footer> </footer>
 
-    <footer>
-    </footer>
-
-    <script src="./assets/js/validationScript.js.js" ></script>
-
-   <!-- <script src="./assets/js/weatherSript.js"></script> WE DONT NEED THIS HERE-->
+    <script src="./assets/js/validationScript.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 

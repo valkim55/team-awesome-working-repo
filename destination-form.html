@@ -21,60 +21,56 @@
 </head>
 
 <body>
-    <header>
-        <!-- need to design persistent header for all pages -->
-        <div class="text-center m-2 py-3">
-            <h1>Let's pick a destination!</h1>
-        </div> <!-- (working name) -->
-    </header>
+
+    <section class="hero is-large">
+        <div class="hero-body">
+            <h1 class="homepage-header">let's pick a destination!</h1>
+        </div>
+    </section>
 
     <main>
-        <section class="row min-vh-100 main-section">
-            <!-- section for Form page-->
-            <section class="col-12 col-md-8 col-lg-10">
-                <div class="all-forms">
+    <section class="row min-vh-100 main-section">
+        <!-- section for Form page-->
+        <section class="col-12 col-md-8 col-lg-10">
+            <div class="destination-forms">
+                <div class="form-box">
                     <form id="location-form">
-                        <label name="location" class="label"><span class="icon is-medium is-left"><i
-                                    class="fa-solid fa-location-crosshairs"></i></span> Please enter your starting
-                            location: </label>
-                        <input name="location" id="city-search-input" type="search"
-                            class="input is-info is-normal is-rounded" placeholder="City, State or Zip" />
-                            <p class="errorMessage" id="locationError">Error: Please enter a location</p>
+                        <h4><span class="icon is-medium is-left"><i class="fa-solid fa-location-crosshairs"></i></span> Please enter your starting location: </h4>
+                        <label name="location" class="label"></label>
+                        <input name="location" id="city-search-input" type="search" class="input is-success is-normal is-rounded" placeholder="City, State or Zip" /><p class="errorMessage" id="locationError">Error: Please enter a location</p>
                     </form>
-                            <!-- dropdown for selecting a radius of how far you're willing to travel -->
-                    <div class="all-forms">
-                        <h4><span class="icon is-medium is-left"><i class="fa-solid fa-car"></i></span>How far would you
-                            like to go?</h4>
+                </div>
+                        <!-- dropdown for selecting a radius of how far you're willing to travel -->
+            
+                <div class="form-box">
+                    <h4><span class="icon is-medium is-left"><i class="fa-solid fa-car"></i></span>How far would you like to go?</h4>
+                    <div class="select is-success is-normal is-rounded">    
                         <select class="select-dropdown" id="radius-search-dropdown">
-                            <option value="" disabled selected>Select a distance</option>
+                            <option disabled selected>select...</option>
                             <option type="search" value="1">1 mile</option>
                             <option type="search" value="5">5 miles</option>
                             <option type="search" value="50">50 miles</option>
                             <option type="search" value="100">100 miles</option>
                             <option type="search" value="250">250 miles</option>
                         </select>
-                        <p  class="errorMessage" id="radiusError">Error: Please select one of the option location</p> 
-                      
+                        <button type="submit" id="location-submit" class="button is-success is-outlined is-rounded is-light is-normal">Next</button>
                     </div>
                 </div>
-
-                <!-- date picker for day of travel -->
-                <div class="all-forms">
-                    <h4><span class="icon is-medium is-left"><i class="fa-solid fa-calendar"></i>
-                        </span>When would you like to go?
-                    </h4>
-                    <button class="js-modal-trigger" data-target="modal-js-example">
-                        Open calendar
-                      </button>
+                 <!-- <p  class="errorMessage" id="radiusError">Error: Please select one of the option location</p> -->
+                
+            <!-- date picker for day of travel -->
+            
+                <div class="form-box">
+                    <h4><span class="icon is-medium is-left"><i class="fa-solid fa-calendar"></i></span>When would you like to go?</h4>
+                    <button class="js-modal-trigger" data-target="modal-js-example">Open calendar modal</button>
                     <div id="calendar" >
                         <div class="modal">
                             <div class="modal-background"></div>
                             <div class="modal-content">
                                 <p class="image is-4by3">
-                                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="">
+                                    <img src="https://bulma.io/images/placeholders/200x200.png" alt="">
                                 </p>
                             </div>
-                            
                             <button class="modal-close is-large" aria-label="close"></button>
                         </div>
                     </div>
@@ -85,6 +81,7 @@
 
             </section>
         </section>
+    </section>
     </main>
 
   
