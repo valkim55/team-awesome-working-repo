@@ -3,25 +3,38 @@
 var currentEL = document.querySelector("#city-search-input");
 var radiusLocationEl = document.querySelector("#radius-search-dropdown");
 var searchEl = document.querySelector("#location-submit");
-var calendarEL =document.querySelector("#calendar")
+var calendarEL =document.querySelector("#calendar");
 
-var errorEl = document.querySelector(".errorMessage")
+//error Selector
+var errorEl = document.querySelector(".errorMessage");
+var errorLocationEL = document.querySelector("#locationError");
+var radiusErrorEl = document.querySelector("#radiusError");
+var selectingDateErrorEl = document.querySelector("#selectingDateError")
 
 searchEl.addEventListener("click", () => {
  console.log(`inside searchEl.addEventListener`)
 
- console.log(radiusLocationEl.value);
-
-
-  if(currentEL.value != ""){                      //verifying that CurrentLocation have vaule
+ console.log(radiusLocationEl.value); 
+  if(currentEL.value == "" && radiusLocationEl.value == "" /*&& calendarEL.value == "" */){
+  //check if all selector has vaule if not then "visibility" to "visible"
+    errorEl.style.setProperty("visibility", "visible");  
+  }
+  if(radiusLocationEl.value == ""){
+     //check if radiusLocationEl selector has vaule if not then "visibility" to "visible"
+    radiusErrorEl.style.setProperty("visibility", "visible");  //if CurrentLocation have vaule is "" will set style "visibility" to "visible"
+  }
+  /*if(calendarEL.value == ""){
+     //check if calendarEL selector has vaule if not then "visibility" to "visible"
+    selectingDateErrorEl.style.setProperty("visibility", "visible");  //if calendarEL have vaule is "" will set style "visibility" to "visible"
+  }*/
+  if(currentEL.value == ""){
+      //check if currentEL selector has vaule if not then "visibility" to "visible"
+    errorLocationEL.style.setProperty("visibility", "visible");  
+  }else{
     errorEl.style.setProperty("visibility", "hidden");
     getCurrentLocationAPI();
-  }else{
-    errorEl.style.setProperty("visibility", "visible");  //if CurrentLocation have vaule is "" will set style "visibility" to "visible"
   }
 })
-
-
 
 function getCurrentLocationAPI() {
   //this function will post users current location and return the its coordinates 
@@ -148,3 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+/*START OF weatherScript*/
