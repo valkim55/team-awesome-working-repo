@@ -7,10 +7,10 @@ body{
 }
 
 .homepage-header {
-    padding: 30px;
+    padding: 150px 30px 30px 30px;
     text-shadow: 2px 2px darkgrey;
-    border: 2px solid green;
     text-align: center;
+    margin-bottom: 0;
 }
 
 .hero {
