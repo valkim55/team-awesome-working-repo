@@ -49,7 +49,9 @@ button {
    
 }
 
-.errorMessage{
+.errorMessage, #locationError
+#radiusError,
+#selectingDateError{
     font: italic;
     color: red;
     visibility: hidden;
