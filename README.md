@@ -7,7 +7,7 @@
 
 # User Story
 ```
-  A user is bored and wants to be spontaneous. So the user wants to use an app where it shows them activities near them or a certain radius and based on weather type
+  A user is bored and wants to be spontaneous.<br /> So the user wants to use an app where it shows them activities <br />near them or a certain radius and based on weather type
 
 
 user = consumer who wants to find a location for a day trip, based on their preferences (current geo, weather, travel distance (miles or hours?), things to do / events)
