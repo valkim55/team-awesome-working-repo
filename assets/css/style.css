@@ -2,13 +2,16 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif
 }
+
 body{
-    background-color: #F2EBE9;
+    background-color: #FBF2CF;
 }
 
 .homepage-header {
     padding: 150px 30px 30px 30px;
     text-shadow: 2px 2px darkgrey;
+    font-size: 2.5em;
+    color: aqua;
     text-align: center;
     margin-bottom: 0;
 }
@@ -77,5 +80,26 @@ button {
 #selectingDateError{
     font: italic;
     color: red;
+    visibility: hidden;
+}
+
+
+
+.pageSections{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    float: center;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    margin-bottom: 80px;
+
+}
+#homePage{
+    visibility: visible;
+}
+
+#destination-page, #destinationpage,#weatherpage,#resultpage{
     visibility: hidden;
 }

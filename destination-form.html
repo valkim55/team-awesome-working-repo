@@ -21,13 +21,14 @@
 </head>
 
 <body>
-
-    <h1 class="homepage-header">welcome to day trip picker!</h1>
-    <section class="hero is-medium">
-        <div class="hero-body"></div>
+    <main id="destination-page" class="pageSections">
+    <section class="hero is-large">
+        <div class="hero-body">
+            <h1 class="homepage-header">let's pick a destination!</h1>
+        </div>
     </section>
 
-    <main>
+  
     <section class="row min-vh-100 main-section">
         <!-- section for Form page-->
         <section class="col-12 col-md-8 col-lg-10">
@@ -45,7 +46,7 @@
                     <h4><span class="icon is-medium is-left"><i class="fa-solid fa-car"></i></span>How far would you like to go?</h4>
                     <div class="select is-success is-normal is-rounded">    
                         <select class="select-dropdown" id="radius-search-dropdown">
-                            <option disabled selected>select...</option>
+                            <option type="search" value="" disabled selected>select...</option>
                             <option type="search" value="1">1 mile</option>
                             <option type="search" value="5">5 miles</option>
                             <option type="search" value="50">50 miles</option>
@@ -55,7 +56,7 @@
                        
                     </div>
                 </div>
-                 <!-- <p  class="errorMessage" id="radiusError">Error: Please select one of the option location</p> -->
+                <p  class="errorMessage" id="radiusError">Error: Please select one of the option location</p> 
                 
             <!-- date picker for day of travel -->
             
@@ -78,10 +79,22 @@
                 <button type="submit" id="location-submit"
                 class="button is-link is-outlined is-rounded is-light is-normal">Next</button>
                 <a id="stud" href="./results-page.html" class="button is-link is-outlined is-rounded is-light is-normal">Stud</a>
+                <a id="driver" href="#results" class="button is-link is-outlined is-rounded is-light is-normal">driver</a>
 
             </section>
         </section>
     </section>
+    <section class="row min-vh-100 main-section" id ="results">
+       section for Results page 
+       <section class="col-12 col-md-8 col-lg-10">
+           <h2>Places</h2>
+       </section>
+      <section class="col-12 col-md-8 col-lg-10 name-form">
+           <div class="all-forms flex justify-space-around">
+            <ul id= "eventList"class="col-8 mb-3"></ul>
+           </div>
+       </section> 
+   </section>
     </main>
 
   
