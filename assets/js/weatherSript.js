@@ -1,6 +1,7 @@
 
 var apiKey = '13765804293c80fb9eac8b6b1d0beeb5';
-var locationName = 'Maldives'; // whatever location i'll get from Kabir
+//var apiKey = '69599c6228df340aef0dcbcd3745d28e';
+//var locationName;
 var newLon; //rounded lon
 var newLat; //rounded lat
 
@@ -12,13 +13,13 @@ var rainForm = document.querySelector("#precipitation-selection");
 var weatherButton = document.querySelector("#weather-submit");
 var displayResultsContainer = document.querySelector('#display-results');
 
-//var locationRespons = [];
-var fiveLocations = ['Seattle', 'New Orleans', 'Seoul', 'Barcelona', 'Reykjavik']
-fiveLocations[0] = ['-122.3321', '47.6062'];
-fiveLocations[1] = ['-90.0751', '29.9547'];
-fiveLocations[2] = ['126.9778', '37.5683'];
-fiveLocations[3] = ['2.159', '41.3888'];
-fiveLocations[4] = ['-21.8954', '64.1355'];
+
+var fiveLocations = []
+fiveLocations[0] = ['-73.987', '40.70471'];
+fiveLocations[1] = ['-74.03108', '40.7317'];
+fiveLocations[2] = ['-73.97956', '40.7473'];
+fiveLocations[3] = ['-74.00001', '40.72389'];
+fiveLocations[4] = ['-74.00597', '40.72153'];
 
 // array with rounded geo coordinates
 var updatedFiveLocations = []
@@ -67,10 +68,6 @@ var getNewPOP = function(weatherInfo) {
 }
 
 
-
-
-
-
 var weatherCall = function() {
     var secondURL = 'https://api.openweathermap.org/data/3.0/onecall?lat='+newLat+'&lon='+newLon+'&units=imperial&exclude=minutely&appid='+apiKey;
     fetch(secondURL).then(function(response) {
@@ -101,7 +98,7 @@ var getGeoLocation = function() {
     };
 };
 
-getGeoLocation();
+getGeoLocation(fiveLocations);
 
 
 
@@ -126,12 +123,6 @@ var submitWeatherHandler = function(event) {
         userRainSelection(userRainValue);
     }
 };
-
-var acceptableTemp = [];
-
-
-
-
 
 
 /* ------------------------- users selections on weather parameters ------------------------------------- */
@@ -356,4 +347,4 @@ var userRainSelection = function(userRainValue) {
 
 
 
-//weatherButton.addEventListener("click", submitWeatherHandler);
+weatherButton.addEventListener("click", submitWeatherHandler);

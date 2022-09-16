@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's see what we've got for you</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link class="tabIcon" rel="icon" type="image/x-icon" href="./assets/images/favicon.png" alt="gofavicon"> </link>
+</head>
+
+<body>
+
+    <h1 class="homepage-header">welcome to day trip picker!</h1>
+    <section class="hero is-medium">
+        <div class="hero-body"></div>
+    </section>
+
+    <main>
+        <section class="row min-vh-100 main-section">
+             <!-- section for Results page -->
+            <section class="col-12 col-md-8 col-lg-10">
+                <h2>Places</h2>
+            </section>
+            <section class="col-12 col-md-8 col-lg-10 name-form">
+                <div class="all-forms flex justify-space-around">
+                    <form id="eventList" class="card-body">
+                        <label class = "eventList" for="location">Location</label>
+                        <input location="location" id="location" type="text" autofocus="true" class="location-input" />
+                    </form>
+                </div>
+            </section>
+            <div class="col-12 col-md-8">
+                <h2 class="subtitle">Showing events for: <span id="repo-search-term"></span></h2>
+                <div id="repos-container" class="list-group">
+          
+                </div>
+              </div>
+        </section>
+    </main>
+
+    <script src="./assets/js/eventScript.js"></script>
+
+</body>
+
+</html>
