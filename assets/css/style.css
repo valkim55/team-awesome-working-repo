@@ -79,3 +79,29 @@ button {
     color: red;
     visibility: hidden;
 }
+
+#results{
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    float: center;
+
+}
+
+.pageSections{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    float: center;
+}
+#homePage{
+    visibility: visible;
+}
+
+#destination-page, #destinationpage,#weatherpage,#resultpage{
+    visibility: hidden;
+}

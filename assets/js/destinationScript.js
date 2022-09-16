@@ -1,17 +1,34 @@
 
 
+//Pages
+var homepageEL = document.querySelector('#homePage');
+var destinationformEL = document.querySelector('#destinationpage');
+var weatherformEL = document.querySelector('#weatherpage');
+var resultpageEL = document.querySelector("#resultpage");
+
+//elements 
+var nameinputEL = document.querySelector("#name-input");
+var getStartedEL = document.querySelector("#btnGet-Started");
+
+
 var currentEL = document.querySelector("#city-search-input");
 var radiusLocationEl = document.querySelector("#radius-search-dropdown");
 var searchEl = document.querySelector("#location-submit");
 var calendarEL = document.querySelector("#calendar");
-var stud = document.querySelector ("#stud");
+var driver = document.querySelector ("#driver");
 
 
-//error Selector
+//error
+var nameinputErrorEL = document.querySelector("#nameinputError");
 var errorEl = document.querySelector(".errorMessage");
 var errorLocationEL = document.querySelector("#locationError");
 var radiusErrorEl = document.querySelector("#radiusError");
 var selectingDateErrorEl = document.querySelector("#selectingDateError")
+
+getStartedEL.addEventListener("click", () =>{
+  homepageEL.style.setProperty("visibility", "hidden");
+  destinationformEL.style.setProperty("visibility", "visible");
+})
 
 searchEl.addEventListener("click", () => {
   console.log(`inside searchEl.addEventListener`)
@@ -34,6 +51,8 @@ searchEl.addEventListener("click", () => {
     errorLocationEL.style.setProperty("visibility", "visible");
   } else {
     errorEl.style.setProperty("visibility", "hidden");
+    destinationformEL.style.setProperty("visibility", "hidden");
+    weatherformEL.style.setProperty("visibility", "visible");
     getCurrentLocationAPI();
   }
 })
@@ -106,10 +125,11 @@ function getTOMUserPOIS(latitude, longitude) {
 
 }
 
-stud.addEventListener("click", () =>{
-
-  displayEndResults();
+driver.addEventListener("click",()=>{
+  resultsOnDis.style.setProperty("visibility", "visible");
+   displayEndResults();
 })
+
 
 
 
