@@ -6,6 +6,7 @@ var searchEl = document.querySelector("#location-submit");
 var calendarEL = document.querySelector("#calendar");
 var stud = document.querySelector ("#stud");
 
+
 //error Selector
 var errorEl = document.querySelector(".errorMessage");
 var errorLocationEL = document.querySelector("#locationError");
@@ -34,8 +35,6 @@ searchEl.addEventListener("click", () => {
   } else {
     errorEl.style.setProperty("visibility", "hidden");
     getCurrentLocationAPI();
-
-  
   }
 })
 
@@ -113,15 +112,18 @@ stud.addEventListener("click", () =>{
 })
 
 
-var eventListEL = document.querySelectorAll("eventList");
+
 function displayEndResults(){
-  
+  var eventListEL = document.querySelector('#eventList');
   for(var i = 0;i<locationResponse.length; i++){
     var listItem = document.createElement('li');
     var itemToDisplay = `${locationResponse[i].city}, ${locationResponse[i].state} ${locationResponse[i].distance.slice(0, 4)} mi`;
    console.log(itemToDisplay);
-    listItem.textContent = `${locationResponse[i].city}, ${locationResponse[i].state} ${locationResponse[i].distance.slice(0, 4)} mi`;
-    eventListEL.appendChild(listItem);
+   console.log(eventListEL)
+   // listItem.textContent = `${locationResponse[i].city.value}, ${locationResponse[i].state.value} ${locationResponse[i].distance.value.slice(0, 4)} mi`;
+   listItem.textContent = itemToDisplay;
+   
+   eventListEL.appendChild(listItem);
   }
 
 }
