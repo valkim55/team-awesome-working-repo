@@ -126,7 +126,9 @@ function getTOMUserPOIS(latitude, longitude) {
 }
 
 driver.addEventListener("click",()=>{
+  weatherformEL.style.setProperty("visibility", "hidden");
   resultsOnDis.style.setProperty("visibility", "visible");
+ 
    displayEndResults();
 })
 
