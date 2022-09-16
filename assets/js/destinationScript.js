@@ -26,8 +26,15 @@ var radiusErrorEl = document.querySelector("#radiusError");
 var selectingDateErrorEl = document.querySelector("#selectingDateError")
 
 getStartedEL.addEventListener("click", () =>{
+  if(nameinputEL.value != ""){
+    nameinputErrorEL.style.setProperty("visibility", "hidden");
   homepageEL.style.setProperty("visibility", "hidden");
+  getStartedEL.style.setProperty("href", "#destinationpage" );
   destinationformEL.style.setProperty("visibility", "visible");
+
+  }else{
+    nameinputErrorEL.style.setProperty("visibility", "visible");
+  }
 })
 
 searchEl.addEventListener("click", () => {
@@ -38,7 +45,7 @@ searchEl.addEventListener("click", () => {
     //check if all selector has value if not then "visibility" to "visible"
     errorEl.style.setProperty("visibility", "visible");
   }
-  if (radiusLocationEl.value == "") {
+  else if (radiusLocationEl.value == "") {
     //check if radiusLocationEl selector has value if not then "visibility" to "visible"
     radiusErrorEl.style.setProperty("visibility", "visible");  //if CurrentLocation have value is "" will set style "visibility" to "visible"
   }
@@ -46,12 +53,13 @@ searchEl.addEventListener("click", () => {
      //check if calendarEL selector has value if not then "visibility" to "visible"
     selectingDateErrorEl.style.setProperty("visibility", "visible");  //if calendarEL have value is "" will set style "visibility" to "visible"
   }*/
-  if (currentEL.value == "") {
+  else if (currentEL.value == "") {
     //check if currentEL selector has value if not then "visibility" to "visible"
     errorLocationEL.style.setProperty("visibility", "visible");
   } else {
     errorEl.style.setProperty("visibility", "hidden");
     destinationformEL.style.setProperty("visibility", "hidden");
+    searchEl.style.setProperty("href", "#weatherpage" );
     weatherformEL.style.setProperty("visibility", "visible");
     getCurrentLocationAPI();
   }
@@ -127,7 +135,7 @@ function getTOMUserPOIS(latitude, longitude) {
 
 driver.addEventListener("click",()=>{
   weatherformEL.style.setProperty("visibility", "hidden");
-  resultsOnDis.style.setProperty("visibility", "visible");
+  resultpageEL.style.setProperty("visibility", "visible");
  
    displayEndResults();
 })
@@ -141,9 +149,7 @@ function displayEndResults(){
     var listItem = document.createElement('li');
     var itemToDisplay = `${locationResponse[i].city}, ${locationResponse[i].state} ${locationResponse[i].distance.slice(0, 4)} mi`;
    console.log(itemToDisplay);
-   console.log(eventListEL)
-   // listItem.textContent = `${locationResponse[i].city.value}, ${locationResponse[i].state.value} ${locationResponse[i].distance.value.slice(0, 4)} mi`;
-   listItem.textContent = itemToDisplay;
+  listItem.textContent = itemToDisplay;
    
    eventListEL.appendChild(listItem);
   }
