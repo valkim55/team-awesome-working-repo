@@ -13,7 +13,8 @@ var currentEL = document.querySelector("#city-search-input");
 var radiusLocationEl = document.querySelector("#radius-search-dropdown");
 var searchEl = document.querySelector("#location-submit");
 var calendarEL = document.querySelector("#calendar");
-var driver = document.querySelector("#driver");
+//var driver = document.querySelector("#driver");
+var recheckEL = document.querySelector("#btnRecheck");
 //TO-DO--
 // variables for temperature parameters forms to filter weather data
 var tempForm = document.querySelector("#temp-selection");
@@ -34,6 +35,7 @@ var selectingDateErrorEl = document.querySelector("#selectingDateError")
 
 //global variables
 var locationResponse = []; //store the radius from getTOMUserPOIS Response
+
 
 //api keys
 var mapquestapi = "vWzHFILMQOPgQjlt4C8DWFxfHDsrfaPR";
@@ -246,8 +248,17 @@ var getNewPOP = function(weatherInfo) {
     console.log(newPOP);
 }
 
+weatherButton.addEventListener("click", ()=>{
+  weatherformEL.style.setProperty("visibility", "hidden");
+  weatherButton.style.setProperty("href","#resultpage");
+ 
+  weatherCall();
+  resultpageEL.style.setProperty("visibility", "visible");
+  displayEndResults();
+});
 
-var weatherCall = function () {
+function weatherCall() {
+  
   for (var i = 0; i < locationResponse.length; i++) {
     newLon = Math.round(locationResponse[i].latLng[0] *100)/100;
     newLat = Math.round(locationResponse[i].latLng[1] *100)/100;
@@ -314,7 +325,7 @@ var userTempSelection = function(userTempValue) {
           console.log('user chose between 40 and 55');
           for (var i=0; i < allTemps.length; i++) {
               if(allTemps[i] >= 40 && allTemps[i] <= 55) {
-                var goodTem1 = allTemps[i];
+                var goodTem1 = allTemps[i].value;
                 displayEndResults(goodTem1);
                
               } else { console.log('not acceptable weather');}
@@ -341,8 +352,8 @@ var userTempSelection = function(userTempValue) {
           console.log('user chose between 70 and 85');
           for (var i=0; i < allTemps.length; i++) {
               if(allTemps[i] >= 71 && allTemps[i] <= 85) {
-                var goodTem1 = allTemps[i];
-                console.value(goodTem1.value);
+                var goodTem1 = allTemps[i].value;
+                console.value(goodTem1);
                 displayEndResults(goodTem1);
                   // var goodTemp = document.createElement('span');
                   // goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
@@ -526,13 +537,13 @@ var userRainSelection = function(userRainValue) {
 };
 
 
-/*Test Driver*/
-driver.addEventListener("click", () => {
-  weatherformEL.style.setProperty("visibility", "hidden");
-  resultpageEL.style.setProperty("visibility", "visible");
-  weatherCall();
-  displayEndResults();
-})
+// /*Test Driver*/
+// driver.addEventListener("click", () => {
+//   weatherformEL.style.setProperty("visibility", "hidden");
+//   resultpageEL.style.setProperty("visibility", "visible");
+//   weatherCall();
+//   displayEndResults();
+// })
 
 
 
@@ -540,14 +551,25 @@ driver.addEventListener("click", () => {
 function displayEndResults(goodTemp) {
   var eventListEL = document.querySelector('#eventList');
   for (var i = 0; i < locationResponse.length; i++) {
-    var listItem = document.createElement('li');
-    var itemToDisplay = `${goodTemp}, ${locationResponse[i].city}, ${locationResponse[i].state} ${locationResponse[i].distance.slice(0, 4)} mi`;
-    console.log(itemToDisplay);
-    listItem.textContent = itemToDisplay;
+    var listLocationItem = document.createElement('li');
+    var goButton = document.createElement('button')
 
-    eventListEL.appendChild(listItem);
+    goButton.textContent= "GO";
+    var itemToDisplay = `${goodTemp}, ${locationResponse[i].city}, ${locationResponse[i].state} ${locationResponse[i].distance.slice(0, 4)} mi`;
+
+    listLocationItem.textContent = itemToDisplay;
+    eventListEL.appendChild(listLocationItem.appendChild(goButton));
+    eventListEL.appendChild(listLocationItem);
+
   }
 
 }
 
+
+recheckEL.addEventListener("click", ()=>{
+  resultpageEL.style.setProperty("visibility", "hidden");
+  recheckEL.style.setProperty("href", "#destinationpage");
+  destinationformEL.style.setProperty("visibility", "visible");
+
+})
 
