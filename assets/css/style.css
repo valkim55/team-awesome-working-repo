@@ -120,6 +120,12 @@ button {
     margin-bottom: 5px;
 }
 
+.button.is-secondary {
+    width: 30%;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
 .modal.content.h4 {
     margin-top: 5px;
 }

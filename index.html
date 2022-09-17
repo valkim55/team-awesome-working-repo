@@ -89,20 +89,36 @@
                                 <div class="modal-background"></div>
                                     <div class="modal-content" class="calendar-modal" class="fa-solid fa-car">
                                         <h4 class="d-flex justify-content-center" class="modal-content-h4" >When is your day trip?</h4>
-                                        <input class="input is-primary" id=date type="text" placeholder="Primary input" class="calendar input">
-                                        
-                                        <!-- should I put this script in a JS file? -->
-                                            <script>
+                                        <form>
+                                            <input class="input is-primary" id=date type="text" placeholder="mm/dd/yyyy" class="calendar input" value=''>
+                                            <!-- should I put this script in a JS file? -->
+                                            <!-- <script>
                                                 $(function() {
                                                     $("#date").datepicker({
                                                         maxDate: '+7d',
-                                                        minDate: '+1d',
+                                                        minDate: '+0d',
                                                     });
+                                                    
+                                                    console.log($("#data").value);
+                                                });
+                                            </script> -->
+                                            
+                                            <button type="submit" id="calendarSubmit" class="button is-primary" class="btn btn-default" onClick="" required aria-required="true" class="d-flex justify-content-center">Submit</button>
+                                            
+                                            <script>
+                                                $("#calendarSubmit").addEventListener("click",()=>{datepicker();});
+                                                $(function() {
+                                                    $("#date").datepicker({
+                                                        maxDate: '+7d',
+                                                        minDate: '+0d',
+                                                    });
+                                                    
+                                                    console.log($("#data").value);
                                                 });
                                             </script>
-                                            
-                                            <button type="submit" class="button is-primary" class="btn btn-default" onClick="validateCalendar()" required aria-required="true" class="d-flex justify-content-center">Submit</button>
-                                            <button class="modal-close is-large" aria-label="close"></button>
+
+                                            <!-- <button class="button is-secondary" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                                        </form>
                                     </div>
                                 </div>
 
