@@ -14,6 +14,11 @@ var radiusLocationEl = document.querySelector("#radius-search-dropdown");
 var searchEl = document.querySelector("#location-submit");
 var calendarEL = document.querySelector("#calendar");
 var driver = document.querySelector("#driver");
+var openCalendarEl = document.querySelector("#openCalendar");
+var calendarmodalEL = document.querySelector("#calendar");
+var inputdatepickerEl = document.querySelector("#inputDate");
+var datepickerSubmitEL = document.querySelector("#calendarSubmit");
+
 //TO-DO--
 // variables for temperature parameters forms to filter weather data
 var tempForm = document.querySelector("#temp-selection");
@@ -54,6 +59,16 @@ getStartedEL.addEventListener("click", () => {
     nameinputErrorEL.style.setProperty("visibility", "visible");
   }
 })
+
+// openCalendarEl.addEventListener("click", ()=> {
+//   calendarmodalEL.style.setProperty("visibility", "visible");
+// })
+
+datepickerSubmitEL.addEventListener("click", ()=>{
+  console.log(datepickerEl.value);
+  calendarmodalEL.style.setProperty("visibility", "hidden");
+})
+
 
 /*destination actions start here*/
 searchEl.addEventListener("click", () => {
