@@ -69,7 +69,7 @@ var getNewPOP = function(weatherInfo) {
 
 
 var weatherCall = function() {
-    var secondURL = 'https://api.openweathermap.org/data/3.0/onecall?lat='+newLat+'&lon='+newLon+'&units=imperial&exclude=minutely&appid='+apiKey;
+    var secondURL = 'https://api.openweathermap.org/data/3.0/onecall?lat='+openweatherapi+'&lon='+newLon+'&units=imperial&exclude=minutely&appid='+apiKey;
     fetch(secondURL).then(function(response) {
         if(response.ok) {
             response.json().then(function(weatherInfo) {
