@@ -35,8 +35,9 @@
                             <label name="name" class="label"><span class="icon is-medium is-left"><i class="fa-regular fa-id-badge"></i></span> Please enter your name: </label>
                             <input name="name" id="name-input" type="text" class="input is-focused is-success is- is-rounded" placeholder="Name"/>
                             <a id="btnGet-Started" class="button is-success is-outlined is-rounded is-light is-normal">Get Started</a>
+                            <p class="errorMessage" id="nameinputError">Error: Please enter your name</p>
                         </form>
-                        <p class="errorMessage" id="nameinputError">Error: Please enter your name</p>
+                     
                     </div>
                 </div>
             </section>
@@ -78,9 +79,10 @@
                                 <option type="search" value="20">20 miles</option>
 
                             </select>
+                            <p  class="errorMessage" id="radiusError">Error: Please select one of the option location</p> 
                         </div>
 
-                        <p  class="errorMessage" id="radiusError">Error: Please select one of the option location</p> 
+                   
                     </div>
                  
                     <!-- date picker for day of travel -->
@@ -95,14 +97,14 @@
                                         <form>
                                             <input class="input is-primary" id="inputDate" type="text" placeholder="mm/dd/yyyy" class="calendar input" value=''>
                                             
-                                            <!-- <script>
+                                            <script>
                                                 $(function() {
                                                     $("#inputDate").datepicker({
                                                         maxDate: '+7d',
                                                         minDate: '+0d',
                                                     });
                                                 });
-                                            </script> -->
+                                            </script> 
                                             
                                             <button type="submit" id="calendarSubmit" class="button is-primary" class="btn btn-default" onClick="" required aria-required="true" class="d-flex justify-content-center">Submit</button>
                                             

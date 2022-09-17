@@ -79,8 +79,10 @@ searchEl.addEventListener("click", () => {
   if (currentEL.value == "" && radiusLocationEl.value == "" /*&& calendarEL.value == "" */) {
     //check if all selector has value if not then "visibility" to "visible"
     errorEl.style.setProperty("visibility", "visible");
+    nameinputErrorEL.style.setProperty("visibility", "hidden");
+   
   }
-  else if (radiusLocationEl.value == "") {
+   if (radiusLocationEl.value == "") {
     //check if radiusLocationEl selector has value if not then "visibility" to "visible"
     radiusErrorEl.style.setProperty("visibility", "visible");  //if CurrentLocation have value is "" will set style "visibility" to "visible"
   }
@@ -88,7 +90,7 @@ searchEl.addEventListener("click", () => {
      //check if calendarEL selector has value if not then "visibility" to "visible"
     selectingDateErrorEl.style.setProperty("visibility", "visible");  //if calendarEL have value is "" will set style "visibility" to "visible"
   }*/
-  else if (currentEL.value == "") {
+   if (currentEL.value == "") {
     //check if currentEL selector has value if not then "visibility" to "visible"
     errorLocationEL.style.setProperty("visibility", "visible");
   } else {
@@ -241,7 +243,9 @@ console.log(allPOPs);
 var getNewTemp = function(weatherInfo) {
     var newTemp = weatherInfo.current.temp;
     allTemps.push(newTemp);
-    console.log(newTemp);
+    locationResponse.push(newTemp);
+    console.log("this the new"+ locationResponse);
+    console.log("this the new"+ newTemp);
 }
 
 var getNewCloud = function(weatherInfo) {
