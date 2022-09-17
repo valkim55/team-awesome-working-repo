@@ -86,7 +86,7 @@
                     </div>
                  
                     <!-- date picker for day of travel -->
-                    <div   class="form-box">
+                    <div   class="form-box"> 
                         <h4><span class="icon is-medium is-left"><i class="fa-solid fa-calendar"></i></span>When would you like to go?</h4>
                         <button class="js-modal-trigger" id="openCalendar" data-target="modal-js-example">Open calendar</button>
                         <div id="calendar">
@@ -94,10 +94,10 @@
                                 <div class="modal-background"></div>
                                     <div class="modal-content" class="calendar-modal" class="fa-solid fa-car">
                                         <h4 class="d-flex justify-content-center" class="modal-content-h4" >When is your day trip?</h4>
-                                        <form>
+                                      <form> 
                                             <input class="input is-primary" id="inputDate" type="text" placeholder="mm/dd/yyyy" class="calendar input" value=''>
                                             
-                                            <script>
+                                             <script>
                                                 $(function() {
                                                     $("#inputDate").datepicker({
                                                         maxDate: '+7d',
@@ -106,19 +106,19 @@
                                                 });
                                             </script> 
                                             
-                                            <button type="submit" id="calendarSubmit" class="button is-primary" class="btn btn-default" onClick="" required aria-required="true" class="d-flex justify-content-center">Submit</button>
+                                            <button type="submit" id="calendarSubmit" class="button is-primary" class="btn btn-default"  class="d-flex justify-content-center">Submit</button>
                                             
-                                        </form>
+                                         </form> 
                                     </div>
-                                </div>
+                               </div>
 
                                 <!-- <button class="modal-close is-large" aria-label="close"></button> -->
                             </div>
                         </div>
                        <p class="errorMessage" id="selectingDateError">Error: Please select day</p>
                     </div>
-                    <a id="location-submit" class="button is-success is-outlined is-rounded is-light is-normal">Next</a>
-                </section>
+                <a id="location-submit" class="button is-success is-outlined is-rounded is-light is-normal">Next</a>
+        
              
             </section>
         </section>
@@ -139,7 +139,7 @@
                     <label for="temp-selection" class="label"><span class="icon is-medium is-left"><i class="fa-solid fa-temperature-quarter"></i></span> Please select the temperature range </label>
                     <div class="select is-rounded is normal is-success">
                         <select id="temp-selection" name="temp">
-                            <option value="selectoption">select option</option>
+                            <option value="">select option</option>
                             <option value="higher than 40 less than 55">between 40 and 55 </option>
                             <option value="higher than 55 less than 70">between 55 and 70 </option>
                             <option value="higher than 70 less than 85">between 70 and 85 </option>
@@ -150,7 +150,7 @@
                     <label for="cloud-selection" class="label"><span class="icon is-medium is-left"><i class="fa-solid fa-cloud"></i></span> Please select acceptable cloudiness </label>
                     <div class="select is-rounded is normal is-success">
                         <select id="cloud-selection" name="cloud">
-                            <option value="selectoption">select option</option>
+                            <option value="">select option</option>
                             <option value="between 0 and 40">partly cloudy</option>
                             <option value="between 40 and 70">mostly cloudy</option>
                             <option value="between 70 and 100">cloudy</option>
@@ -160,17 +160,17 @@
                     <label for="humid-selection" class="label"><span class="icon is-medium is-left"><i class="fa-solid fa-droplet"></i></span> Please select acceptable humidity </label>
                     <div class="select is-rounded is normal is-success">
                         <select id="humid-selection" name="humid">
-                            <option value="selectoption">select option</option>
-                            <option value="higher than 30 less than 50">30% - 50% </option>
-                            <option value="higher than 50 less than 70">50% - 70% </option>
-                            <option value="higher than 70 less than 90">70% - 90% </option>
+                            <option value="">select option</option>
+                            <option value="30,50">30% - 50% </option>
+                            <option value="50,70">50% - 70% </option>
+                            <option value="70,90">70% - 90% </option>
                         </select>
                     </div>
 
                     <label for="precipitation-selection" class="label"><span class="icon is-medium is-left"><i class="fa-solid fa-snowflake"></i></span> Do you mind a little rain/snow? </label>
                     <div class="select is-rounded is normal is-success">
                         <select id="precipitation-selection" name="rain-snow">
-                            <option value="selectoption">select option</option>
+                            <option value="">select option</option>
                             <option value=true>surprise me!</option>
                             <option value=false>not for me! </option>
                         </select>
