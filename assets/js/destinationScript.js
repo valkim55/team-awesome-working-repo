@@ -18,6 +18,10 @@ var openCalendarEl = document.querySelector("#openCalendar");
 var calendarmodalEL = document.querySelector("#calendar");
 var inputdatepickerEl = document.querySelector("#inputDate");
 var datepickerSubmitEL = document.querySelector("#calendarSubmit");
+var recheckEL = document.querySelector("#btnRecheck");
+
+
+
 
 //TO-DO--
 // variables for temperature parameters forms to filter weather data
@@ -53,21 +57,12 @@ getStartedEL.addEventListener("click", () => {
   if (nameinputEL.value != "") { //checkin for any error
     nameinputErrorEL.style.setProperty("visibility", "hidden");
     homepageEL.style.setProperty("visibility", "hidden");
-    getStartedEL.style.setProperty("href", "#destinationpage");
+    getStartedEL.style.setProperty("href", destinationformEL);
     destinationformEL.style.setProperty("visibility", "visible");
 
   } else {
     nameinputErrorEL.style.setProperty("visibility", "visible");
   }
-})
-
-// openCalendarEl.addEventListener("click", ()=> {
-//   calendarmodalEL.style.setProperty("visibility", "visible");
-// })
-
-datepickerSubmitEL.addEventListener("click", ()=>{
-  console.log(datepickerEl.value);
-  calendarmodalEL.style.setProperty("visibility", "hidden");
 })
 
 
