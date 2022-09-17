@@ -94,7 +94,10 @@
                                         <!-- should I put this script in a JS file? -->
                                             <script>
                                                 $(function() {
-                                                $("#date").datepicker();
+                                                    $("#date").datepicker({
+                                                        maxDate: '+7d',
+                                                        minDate: '+1d',
+                                                    });
                                                 });
                                             </script>
                                             
