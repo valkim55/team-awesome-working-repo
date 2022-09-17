@@ -342,6 +342,7 @@ var userTempSelection = function(userTempValue) {
           for (var i=0; i < allTemps.length; i++) {
               if(allTemps[i] >= 71 && allTemps[i] <= 85) {
                 var goodTem1 = allTemps[i];
+                console.value(goodTem1.value);
                 displayEndResults(goodTem1);
                   // var goodTemp = document.createElement('span');
                   // goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
