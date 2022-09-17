@@ -84,27 +84,25 @@
                     </div>
                  
                     <!-- date picker for day of travel -->
-                    <div class="form-box">
+                    <div   class="form-box">
                         <h4><span class="icon is-medium is-left"><i class="fa-solid fa-calendar"></i></span>When would you like to go?</h4>
                         <button class="js-modal-trigger" id="openCalendar" data-target="modal-js-example">Open calendar</button>
-                        <div id="calendar" >
+                        <div id="calendar">
                             <div class="modal">
                                 <div class="modal-background"></div>
                                     <div class="modal-content" class="calendar-modal" class="fa-solid fa-car">
                                         <h4 class="d-flex justify-content-center" class="modal-content-h4" >When is your day trip?</h4>
                                         <form>
-                                            <input class="input is-primary" id=inputDate type="text" placeholder="mm/dd/yyyy" class="calendar input" value=''>
+                                            <input class="input is-primary" id="inputDate" type="text" placeholder="mm/dd/yyyy" class="calendar input" value=''>
                                             
-                                            <script>
+                                            <!-- <script>
                                                 $(function() {
                                                     $("#inputDate").datepicker({
                                                         maxDate: '+7d',
                                                         minDate: '+0d',
                                                     });
-                                                    
-                                                    console.log($("#data").value);
                                                 });
-                                            </script>
+                                            </script> -->
                                             
                                             <button type="submit" id="calendarSubmit" class="button is-primary" class="btn btn-default" onClick="" required aria-required="true" class="d-flex justify-content-center">Submit</button>
                                             
@@ -112,7 +110,7 @@
                                     </div>
                                 </div>
 
-                                <button class="modal-close is-large" aria-label="close"></button>
+                                <!-- <button class="modal-close is-large" aria-label="close"></button> -->
                             </div>
                         </div>
                        <p class="errorMessage" id="selectingDateError">Error: Please select day</p>

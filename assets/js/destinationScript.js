@@ -12,16 +12,13 @@ var getStartedEL = document.querySelector("#btnGet-Started");
 var currentEL = document.querySelector("#city-search-input");
 var radiusLocationEl = document.querySelector("#radius-search-dropdown");
 var searchEl = document.querySelector("#location-submit");
-var calendarEL = document.querySelector("#calendar");
-var driver = document.querySelector("#driver");
+// var calendarEL = document.querySelector("#calendar");
+// var driver = document.querySelector("#driver");
 var openCalendarEl = document.querySelector("#openCalendar");
 var calendarmodalEL = document.querySelector("#calendar");
 var inputdatepickerEl = document.querySelector("#inputDate");
 var datepickerSubmitEL = document.querySelector("#calendarSubmit");
 var recheckEL = document.querySelector("#btnRecheck");
-
-
-
 
 //TO-DO--
 // variables for temperature parameters forms to filter weather data
@@ -53,16 +50,24 @@ var openweatherapi = "13765804293c80fb9eac8b6b1d0beeb5"
 /*Home Page actions start here*/
 //EventListener to get started
 getStartedEL.addEventListener("click", () => {
-
   if (nameinputEL.value != "") { //checkin for any error
     nameinputErrorEL.style.setProperty("visibility", "hidden");
     homepageEL.style.setProperty("visibility", "hidden");
-    getStartedEL.style.setProperty("href", destinationformEL);
+    getStartedEL.style.setProperty("href", "#destinationpage");
     destinationformEL.style.setProperty("visibility", "visible");
 
   } else {
     nameinputErrorEL.style.setProperty("visibility", "visible");
   }
+})
+
+openCalendarEl.addEventListener("click", ()=> {
+ calendarmodalEL.style.setProperty("visibility", "visible");
+})
+
+datepickerSubmitEL.addEventListener("click", ()=>{
+  console.log(inputdatepickerEl.value);
+  calendarmodalEL.style.setProperty("visibility", "hidden");
 })
 
 
