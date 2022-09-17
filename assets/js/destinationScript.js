@@ -249,10 +249,11 @@ var getNewPOP = function(weatherInfo) {
 
 var weatherCall = function () {
   for (var i = 0; i < locationResponse.length; i++) {
-    var latLngs= `${locationResponse[i].latLng[0]},${locationResponse[i].latLng[1]} `;
-    console.log("inside weather call " + latLngs);
+    newLon = Math.round(locationResponse[i].latLng[0] *100)/100;
+    newLat = Math.round(locationResponse[i].latLng[1] *100)/100;
+   // console.log("inside weather call " + latLngs);
 
-    var secondURL = 'https://api.openweathermap.org/data/3.0/onecall?lat=' + openweatherapi + '&lon=' + latLng + '&units=imperial&exclude=minutely&appid=' + apiKey;
+    var secondURL = 'https://api.openweathermap.org/data/3.0/onecall?lat=' + newLat + '&lon=' + newLon + '&units=imperial&exclude=minutely&appid=' + openweatherapi;
     fetch(secondURL).then(function (response) {
       if (response.ok) {
         response.json().then(function (weatherInfo) {
@@ -273,17 +274,6 @@ var weatherCall = function () {
 };
 
 
-var getGeoLocation = function() {
-  for (var i=0; i < fiveLocations.length; i++) {
-  
-      newLon = Math.round(fiveLocations[i][0] *100)/100;
-      newLat = Math.round(fiveLocations[i][1] *100)/100;
-      updatedFiveLocations.push([newLon, newLat])
-      weatherCall(updatedFiveLocations);
-  };
-};
-
-getGeoLocation(fiveLocations);
 
 
 
@@ -324,11 +314,9 @@ var userTempSelection = function(userTempValue) {
           console.log('user chose between 40 and 55');
           for (var i=0; i < allTemps.length; i++) {
               if(allTemps[i] >= 40 && allTemps[i] <= 55) {
-                  var goodTemp = document.createElement('span');
-                  goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
-                  var goodTempContainer = document.createElement('div');
-                  goodTempContainer.appendChild(goodTemp);
-                  displayResultsContainer.appendChild(goodTempContainer);
+                var goodTem1 = allTemps[i];
+                displayEndResults(goodTem1);
+               
               } else { console.log('not acceptable weather');}
           }
       break;
@@ -337,11 +325,14 @@ var userTempSelection = function(userTempValue) {
           console.log('user chose between 55 and 70');
           for (var i=0; i < allTemps.length; i++) {
               if(allTemps[i] >= 56 && allTemps[i] <= 70) {
-                  var goodTemp = document.createElement('span');
-                  goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
-                  var goodTempContainer = document.createElement('div');
-                  goodTempContainer.appendChild(goodTemp);
-                  displayResultsContainer.appendChild(goodTempContainer);
+                var goodTem1 = allTemps[i];
+                displayEndResults(goodTem1);
+               
+                  // var goodTemp = document.createElement('span');
+                  // goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
+                  // var goodTempContainer = document.createElement('div');
+                  // goodTempContainer.appendChild(goodTemp);
+                  // displayResultsContainer.appendChild(goodTempContainer);
               } else { console.log('not acceptable weather');}
           }
       break;
@@ -350,11 +341,13 @@ var userTempSelection = function(userTempValue) {
           console.log('user chose between 70 and 85');
           for (var i=0; i < allTemps.length; i++) {
               if(allTemps[i] >= 71 && allTemps[i] <= 85) {
-                  var goodTemp = document.createElement('span');
-                  goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
-                  var goodTempContainer = document.createElement('div');
-                  goodTempContainer.appendChild(goodTemp);
-                  displayResultsContainer.appendChild(goodTempContainer);
+                var goodTem1 = allTemps[i];
+                displayEndResults(goodTem1);
+                  // var goodTemp = document.createElement('span');
+                  // goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
+                  // var goodTempContainer = document.createElement('div');
+                  // goodTempContainer.appendChild(goodTemp);
+                  // displayResultsContainer.appendChild(goodTempContainer);
               } else { console.log('not acceptable weather');}
           }
       break;
@@ -363,11 +356,14 @@ var userTempSelection = function(userTempValue) {
           console.log('user chose between 85 and 100');
           for (var i=0; i < allTemps.length; i++) {
               if(allTemps[i] >= 86 && allTemps[i] <= 100) {
-                  var goodTemp = document.createElement('span');
-                  goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
-                  var goodTempContainer = document.createElement('div');
-                  goodTempContainer.appendChild(goodTemp);
-                  displayResultsContainer.appendChild(goodTempContainer);
+                var goodTem1 = allTemps[i];
+                displayEndResults(goodTem1);
+               
+                  // var goodTemp = document.createElement('span');
+                  // goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
+                  // var goodTempContainer = document.createElement('div');
+                  // goodTempContainer.appendChild(goodTemp);
+                  // displayResultsContainer.appendChild(goodTempContainer);
               } else { console.log('not acceptable weather');}
           }
       break;
@@ -540,11 +536,11 @@ driver.addEventListener("click", () => {
 
 
 /*results page start here*/
-function displayEndResults() {
+function displayEndResults(goodTemp) {
   var eventListEL = document.querySelector('#eventList');
   for (var i = 0; i < locationResponse.length; i++) {
     var listItem = document.createElement('li');
-    var itemToDisplay = `${locationResponse[i].city}, ${locationResponse[i].state} ${locationResponse[i].distance.slice(0, 4)} mi`;
+    var itemToDisplay = `${goodTemp}, ${locationResponse[i].city}, ${locationResponse[i].state} ${locationResponse[i].distance.slice(0, 4)} mi`;
     console.log(itemToDisplay);
     listItem.textContent = itemToDisplay;
 
@@ -555,4 +551,8 @@ function displayEndResults() {
 
 
 
+// goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
+// var goodTempContainer = document.createElement('div');
+// goodTempContainer.appendChild(goodTemp);
+// displayResultsContainer.appendChild(goodTempContainer);
 
