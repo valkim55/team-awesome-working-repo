@@ -550,9 +550,3 @@ function displayEndResults(goodTemp) {
 }
 
 
-
-// goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
-// var goodTempContainer = document.createElement('div');
-// goodTempContainer.appendChild(goodTemp);
-// displayResultsContainer.appendChild(goodTempContainer);
-
