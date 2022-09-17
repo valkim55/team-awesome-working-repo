@@ -80,7 +80,7 @@ button {
     color: red;
     visibility: hidden;
 }
- #locationError
+.errorMessage #locationError,
 #radiusError,
 #selectingDateError, #nameinputError{
     font: italic;

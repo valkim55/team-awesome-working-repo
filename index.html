@@ -35,8 +35,9 @@
                             <label name="name" class="label"><span class="icon is-medium is-left"><i class="fa-regular fa-id-badge"></i></span> Please enter your name: </label>
                             <input name="name" id="name-input" type="text" class="input is-focused is-success is- is-rounded" placeholder="Name"/>
                             <a id="btnGet-Started" class="button is-success is-outlined is-rounded is-light is-normal">Get Started</a>
+                            <p class="errorMessage" id="nameinputError">Error: Please enter your name</p>
                         </form>
-                        <p class="errorMessage" id="nameinputError">Error: Please enter your name</p>
+                     
                     </div>
                 </div>
             </section>
@@ -51,7 +52,6 @@
                 <h1 class="homepage-header">let's pick a destination!</h1>
             </div>
         </section>
-    
       
         <section class="row min-vh-100 main-section">
             <!-- section for Form page-->
@@ -79,22 +79,23 @@
                                 <option type="search" value="20">20 miles</option>
 
                             </select>
+                            <p  class="errorMessage" id="radiusError">Error: Please select one of the option location</p> 
                         </div>
 
-                        <p  class="errorMessage" id="radiusError">Error: Please select one of the option location</p> 
+                   
                     </div>
                  
                     <!-- date picker for day of travel -->
-                    <div class="form-box">
+                    <div   class="form-box">
                         <h4><span class="icon is-medium is-left"><i class="fa-solid fa-calendar"></i></span>When would you like to go?</h4>
                         <button class="js-modal-trigger" id="openCalendar" data-target="modal-js-example">Open calendar</button>
-                        <div id="calendar" >
+                        <div id="calendar">
                             <div class="modal">
                                 <div class="modal-background"></div>
                                     <div class="modal-content" class="calendar-modal" class="fa-solid fa-car">
                                         <h4 class="d-flex justify-content-center" class="modal-content-h4" >When is your day trip?</h4>
                                         <form>
-                                            <input class="input is-primary" id=inputDate type="text" placeholder="mm/dd/yyyy" class="calendar input" value=''>
+                                            <input class="input is-primary" id="inputDate" type="text" placeholder="mm/dd/yyyy" class="calendar input" value=''>
                                             
                                             <script>
                                                 $(function() {
@@ -102,10 +103,8 @@
                                                         maxDate: '+7d',
                                                         minDate: '+0d',
                                                     });
-                                                    
-                                                    console.log($("#data").value);
                                                 });
-                                            </script>
+                                            </script> 
                                             
                                             <button type="submit" id="calendarSubmit" class="button is-primary" class="btn btn-default" onClick="" required aria-required="true" class="d-flex justify-content-center">Submit</button>
                                             
@@ -113,7 +112,7 @@
                                     </div>
                                 </div>
 
-                                <button class="modal-close is-large" aria-label="close"></button>
+                                <!-- <button class="modal-close is-large" aria-label="close"></button> -->
                             </div>
                         </div>
                        <p class="errorMessage" id="selectingDateError">Error: Please select day</p>
@@ -178,9 +177,8 @@
                     </div>
 
                     <div class="extra-btn">
-                        <a id="driver" href="#resultpage" class="button is-link is-outlined is-rounded is-light is-normal">Testing Driver</a>
-                        
-                        <a href="#resultpage" id="btnGet-Started" class="button is-success is-outlined is-rounded is-light is-normal">Submit</a>
+
+                        <a href="#resultpage" id="weather-submit" class="button is-success is-outlined is-rounded is-light is-normal">Submit</a>
                     </div>
                 
                 </form>
@@ -200,16 +198,13 @@
             </div>
         </section>
         <section class="row min-vh-100 main-section">
-           <section class="col-12 col-md-8 col-lg-10">
-               <h2>Places</h2>
-           </section>
           <section class="col-12 col-md-8 col-lg-10 name-form">
                <div class="all-forms flex justify-space-around">
                 <ul id= "eventList"class="col-8 mb-3"></ul>
                </div>
            </section> 
        </section>
-       <a href="#destinationpage" id="btnGet-Started" class="button is-success is-outlined is-rounded is-light is-normal">Look for other area</a>
+       <a id="btnRecheck" class="button is-success is-outlined is-rounded is-light is-normal">Look for other area</a>
                
     </main>
 

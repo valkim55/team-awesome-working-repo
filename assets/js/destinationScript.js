@@ -12,12 +12,13 @@ var getStartedEL = document.querySelector("#btnGet-Started");
 var currentEL = document.querySelector("#city-search-input");
 var radiusLocationEl = document.querySelector("#radius-search-dropdown");
 var searchEl = document.querySelector("#location-submit");
-var calendarEL = document.querySelector("#calendar");
-var driver = document.querySelector("#driver");
+// var calendarEL = document.querySelector("#calendar");
+// var driver = document.querySelector("#driver");
 var openCalendarEl = document.querySelector("#openCalendar");
 var calendarmodalEL = document.querySelector("#calendar");
 var inputdatepickerEl = document.querySelector("#inputDate");
 var datepickerSubmitEL = document.querySelector("#calendarSubmit");
+var recheckEL = document.querySelector("#btnRecheck");
 
 //TO-DO--
 // variables for temperature parameters forms to filter weather data
@@ -40,6 +41,7 @@ var selectingDateErrorEl = document.querySelector("#selectingDateError")
 //global variables
 var locationResponse = []; //store the radius from getTOMUserPOIS Response
 
+
 //api keys
 var mapquestapi = "vWzHFILMQOPgQjlt4C8DWFxfHDsrfaPR";
 var tomtomapi = "LgN742cN8MR1QMntpr5PgYtQih7dxeGz";
@@ -48,7 +50,6 @@ var openweatherapi = "13765804293c80fb9eac8b6b1d0beeb5"
 /*Home Page actions start here*/
 //EventListener to get started
 getStartedEL.addEventListener("click", () => {
-
   if (nameinputEL.value != "") { //checkin for any error
     nameinputErrorEL.style.setProperty("visibility", "hidden");
     homepageEL.style.setProperty("visibility", "hidden");
@@ -60,12 +61,12 @@ getStartedEL.addEventListener("click", () => {
   }
 })
 
-// openCalendarEl.addEventListener("click", ()=> {
-//   calendarmodalEL.style.setProperty("visibility", "visible");
-// })
+openCalendarEl.addEventListener("click", ()=> {
+ calendarmodalEL.style.setProperty("visibility", "visible");
+})
 
 datepickerSubmitEL.addEventListener("click", ()=>{
-  console.log(datepickerEl.value);
+  console.log(inputdatepickerEl.value);
   calendarmodalEL.style.setProperty("visibility", "hidden");
 })
 
@@ -78,8 +79,10 @@ searchEl.addEventListener("click", () => {
   if (currentEL.value == "" && radiusLocationEl.value == "" /*&& calendarEL.value == "" */) {
     //check if all selector has value if not then "visibility" to "visible"
     errorEl.style.setProperty("visibility", "visible");
+    nameinputErrorEL.style.setProperty("visibility", "hidden");
+   
   }
-  else if (radiusLocationEl.value == "") {
+   if (radiusLocationEl.value == "") {
     //check if radiusLocationEl selector has value if not then "visibility" to "visible"
     radiusErrorEl.style.setProperty("visibility", "visible");  //if CurrentLocation have value is "" will set style "visibility" to "visible"
   }
@@ -87,7 +90,7 @@ searchEl.addEventListener("click", () => {
      //check if calendarEL selector has value if not then "visibility" to "visible"
     selectingDateErrorEl.style.setProperty("visibility", "visible");  //if calendarEL have value is "" will set style "visibility" to "visible"
   }*/
-  else if (currentEL.value == "") {
+   if (currentEL.value == "") {
     //check if currentEL selector has value if not then "visibility" to "visible"
     errorLocationEL.style.setProperty("visibility", "visible");
   } else {
@@ -240,7 +243,9 @@ console.log(allPOPs);
 var getNewTemp = function(weatherInfo) {
     var newTemp = weatherInfo.current.temp;
     allTemps.push(newTemp);
-    console.log(newTemp);
+    locationResponse.push(newTemp);
+    console.log("this the new"+ locationResponse);
+    console.log("this the new"+ newTemp);
 }
 
 var getNewCloud = function(weatherInfo) {
@@ -261,13 +266,23 @@ var getNewPOP = function(weatherInfo) {
     console.log(newPOP);
 }
 
+weatherButton.addEventListener("click", ()=>{
+  weatherformEL.style.setProperty("visibility", "hidden");
+  weatherButton.style.setProperty("href","#resultpage");
+ 
+  weatherCall();
+  resultpageEL.style.setProperty("visibility", "visible");
+  displayEndResults();
+});
 
-var weatherCall = function () {
+function weatherCall() {
+  
   for (var i = 0; i < locationResponse.length; i++) {
-    var latLngs= `${locationResponse[i].latLng[0]},${locationResponse[i].latLng[1]} `;
-    console.log("inside weather call " + latLngs);
+    newLon = Math.round(locationResponse[i].latLng[0] *100)/100;
+    newLat = Math.round(locationResponse[i].latLng[1] *100)/100;
+   // console.log("inside weather call " + latLngs);
 
-    var secondURL = 'https://api.openweathermap.org/data/3.0/onecall?lat=' + openweatherapi + '&lon=' + latLng + '&units=imperial&exclude=minutely&appid=' + apiKey;
+    var secondURL = 'https://api.openweathermap.org/data/3.0/onecall?lat=' + newLat + '&lon=' + newLon + '&units=imperial&exclude=minutely&appid=' + openweatherapi;
     fetch(secondURL).then(function (response) {
       if (response.ok) {
         response.json().then(function (weatherInfo) {
@@ -288,17 +303,6 @@ var weatherCall = function () {
 };
 
 
-var getGeoLocation = function() {
-  for (var i=0; i < fiveLocations.length; i++) {
-  
-      newLon = Math.round(fiveLocations[i][0] *100)/100;
-      newLat = Math.round(fiveLocations[i][1] *100)/100;
-      updatedFiveLocations.push([newLon, newLat])
-      weatherCall(updatedFiveLocations);
-  };
-};
-
-getGeoLocation(fiveLocations);
 
 
 
@@ -339,11 +343,9 @@ var userTempSelection = function(userTempValue) {
           console.log('user chose between 40 and 55');
           for (var i=0; i < allTemps.length; i++) {
               if(allTemps[i] >= 40 && allTemps[i] <= 55) {
-                  var goodTemp = document.createElement('span');
-                  goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
-                  var goodTempContainer = document.createElement('div');
-                  goodTempContainer.appendChild(goodTemp);
-                  displayResultsContainer.appendChild(goodTempContainer);
+                var goodTem1 = allTemps[i].value;
+                displayEndResults(goodTem1);
+               
               } else { console.log('not acceptable weather');}
           }
       break;
@@ -352,11 +354,14 @@ var userTempSelection = function(userTempValue) {
           console.log('user chose between 55 and 70');
           for (var i=0; i < allTemps.length; i++) {
               if(allTemps[i] >= 56 && allTemps[i] <= 70) {
-                  var goodTemp = document.createElement('span');
-                  goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
-                  var goodTempContainer = document.createElement('div');
-                  goodTempContainer.appendChild(goodTemp);
-                  displayResultsContainer.appendChild(goodTempContainer);
+                var goodTem1 = allTemps[i];
+                displayEndResults(goodTem1);
+               
+                  // var goodTemp = document.createElement('span');
+                  // goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
+                  // var goodTempContainer = document.createElement('div');
+                  // goodTempContainer.appendChild(goodTemp);
+                  // displayResultsContainer.appendChild(goodTempContainer);
               } else { console.log('not acceptable weather');}
           }
       break;
@@ -365,11 +370,14 @@ var userTempSelection = function(userTempValue) {
           console.log('user chose between 70 and 85');
           for (var i=0; i < allTemps.length; i++) {
               if(allTemps[i] >= 71 && allTemps[i] <= 85) {
-                  var goodTemp = document.createElement('span');
-                  goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
-                  var goodTempContainer = document.createElement('div');
-                  goodTempContainer.appendChild(goodTemp);
-                  displayResultsContainer.appendChild(goodTempContainer);
+                var goodTem1 = allTemps[i].value;
+                console.value(goodTem1);
+                displayEndResults(goodTem1);
+                  // var goodTemp = document.createElement('span');
+                  // goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
+                  // var goodTempContainer = document.createElement('div');
+                  // goodTempContainer.appendChild(goodTemp);
+                  // displayResultsContainer.appendChild(goodTempContainer);
               } else { console.log('not acceptable weather');}
           }
       break;
@@ -378,11 +386,14 @@ var userTempSelection = function(userTempValue) {
           console.log('user chose between 85 and 100');
           for (var i=0; i < allTemps.length; i++) {
               if(allTemps[i] >= 86 && allTemps[i] <= 100) {
-                  var goodTemp = document.createElement('span');
-                  goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
-                  var goodTempContainer = document.createElement('div');
-                  goodTempContainer.appendChild(goodTemp);
-                  displayResultsContainer.appendChild(goodTempContainer);
+                var goodTem1 = allTemps[i];
+                displayEndResults(goodTem1);
+               
+                  // var goodTemp = document.createElement('span');
+                  // goodTemp.textContent = 'user acceptable temperature: ' + allTemps[i];
+                  // var goodTempContainer = document.createElement('div');
+                  // goodTempContainer.appendChild(goodTemp);
+                  // displayResultsContainer.appendChild(goodTempContainer);
               } else { console.log('not acceptable weather');}
           }
       break;
@@ -544,30 +555,39 @@ var userRainSelection = function(userRainValue) {
 };
 
 
-/*Test Driver*/
-driver.addEventListener("click", () => {
-  weatherformEL.style.setProperty("visibility", "hidden");
-  resultpageEL.style.setProperty("visibility", "visible");
-  weatherCall();
-  displayEndResults();
-})
+// /*Test Driver*/
+// driver.addEventListener("click", () => {
+//   weatherformEL.style.setProperty("visibility", "hidden");
+//   resultpageEL.style.setProperty("visibility", "visible");
+//   weatherCall();
+//   displayEndResults();
+// })
 
 
 
 /*results page start here*/
-function displayEndResults() {
+function displayEndResults(goodTemp) {
   var eventListEL = document.querySelector('#eventList');
   for (var i = 0; i < locationResponse.length; i++) {
-    var listItem = document.createElement('li');
-    var itemToDisplay = `${locationResponse[i].city}, ${locationResponse[i].state} ${locationResponse[i].distance.slice(0, 4)} mi`;
-    console.log(itemToDisplay);
-    listItem.textContent = itemToDisplay;
+    var listLocationItem = document.createElement('li');
+    var goButton = document.createElement('button')
 
-    eventListEL.appendChild(listItem);
+    goButton.textContent= "GO";
+    var itemToDisplay = `${goodTemp}, ${locationResponse[i].city}, ${locationResponse[i].state} ${locationResponse[i].distance.slice(0, 4)} mi`;
+
+    listLocationItem.textContent = itemToDisplay;
+    eventListEL.appendChild(listLocationItem.appendChild(goButton));
+    eventListEL.appendChild(listLocationItem);
+
   }
 
 }
 
 
+recheckEL.addEventListener("click", ()=>{
+  resultpageEL.style.setProperty("visibility", "hidden");
+  recheckEL.style.setProperty("href", "#destinationpage");
+  destinationformEL.style.setProperty("visibility", "visible");
 
+})
 
