@@ -34,14 +34,15 @@
                         <form id="name-form">
                             <label name="name" class="label"><span class="icon is-medium is-left"><i class="fa-regular fa-id-badge"></i></span> Please enter your name: </label>
                             <input name="name" id="name-input" type="text" class="input is-focused is-success is- is-rounded" placeholder="Name"/>
-                            <a href="#destinationpage" id="btnGet-Started" class="button is-success is-outlined is-rounded is-light is-normal">Get Started</a>
+                            <a id="btnGet-Started" class="button is-success is-outlined is-rounded is-light is-normal">Get Started</a>
                         </form>
+                        <p class="errorMessage" id="nameinputError">Error: Please enter your name</p>
                     </div>
                 </div>
             </section>
         </section>
     </main>
-
+  
 
     <!--destination page-->
     <main id="destinationpage" class="pageSections">
@@ -60,7 +61,8 @@
                         <form id="location-form">
                             <h4><span class="icon is-medium is-left"><i class="fa-solid fa-location-crosshairs"></i></span> Please enter your starting location: </h4>
                             <label name="location" class="label"></label>
-                            <input name="location" id="city-search-input" type="search" class="input is-success is-normal is-rounded" placeholder="City, State or Zip" /><p class="errorMessage" id="locationError">Error: Please enter a location</p>
+                            <input name="location" id="city-search-input" type="search" class="input is-success is-normal is-rounded" placeholder="City, State or Zip" />
+                            <p class="errorMessage" id="locationError">Error: Please enter a location</p>
                         </form>
                     </div>
                             <!-- dropdown for selecting a radius of how far you're willing to travel -->
@@ -72,11 +74,13 @@
                                 <option type="search" value="" disabled selected>select...</option>
                                 <option type="search" value="1">1 mile</option>
                                 <option type="search" value="5">5 miles</option>
-                                <option type="search" value="50">50 miles</option>
-                                <option type="search" value="100">100 miles</option>
-                                <option type="search" value="250">250 miles</option>
+                                <option type="search" value="10">10 miles</option>
+                                <option type="search" value="15">15 miles</option>
+                                <option type="search" value="20">20 miles</option>
+
                             </select>
                         </div>
+
                         <p  class="errorMessage" id="radiusError">Error: Please select one of the option location</p> 
                     </div>
                  
@@ -127,7 +131,7 @@
                         </div>
                        <p class="errorMessage" id="selectingDateError">Error: Please select day</p>
                     </div>
-                    <a href="#weatherpage" id="location-submit" class="button is-success is-outlined is-rounded is-light is-normal">Next</a>
+                    <a id="location-submit" class="button is-success is-outlined is-rounded is-light is-normal">Next</a>
                 </section>
              
             </section>
@@ -203,8 +207,12 @@
 
     <!--result page-->
     <main id="resultpage" class="pageSections"> 
+        <section class="hero is-large">
+            <div class="hero-body">
+                <h1 class="homepage-header">Your Search Results</h1>
+            </div>
+        </section>
         <section class="row min-vh-100 main-section">
-           section for Results page 
            <section class="col-12 col-md-8 col-lg-10">
                <h2>Places</h2>
            </section>
