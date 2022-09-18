@@ -66,6 +66,7 @@ openCalendarEl.addEventListener("click", ()=> {
 })
 
 datepickerSubmitEL.addEventListener("click", ()=>{
+  event.preventDefault();
   console.log(inputdatepickerEl.value);
   calendarmodalEL.style.setProperty("visibility", "hidden");
 })
@@ -171,7 +172,6 @@ function getTOMUserPOIS(latitude, longitude) {
 
 //Start of Date picker
 document.addEventListener('DOMContentLoaded', () => {
-  event.preventDefault();
   // Functions to open and close a modal
   function openModal($el) {
     $el.classList.add('is-active');
