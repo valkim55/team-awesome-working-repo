@@ -19,6 +19,9 @@ var calendarmodalEL = document.querySelector("#calendar");
 var inputdatepickerEl = document.querySelector("#inputDate");
 var datepickerSubmitEL = document.querySelector("#calendarSubmit");
 var recheckEL = document.querySelector("#btnRecheck");
+var homepageHeader = document.querySelector(".homepage-header");
+var userNameContainer = document.querySelector("#printName");
+
 
 //TO-DO--
 // variables for temperature parameters forms to filter weather data
@@ -40,12 +43,19 @@ var selectingDateErrorEl = document.querySelector("#selectingDateError")
 
 //global variables
 var locationResponse = []; //store the radius from getTOMUserPOIS Response
+var userName;
 
 
 //api keys
 var mapquestapi = "vWzHFILMQOPgQjlt4C8DWFxfHDsrfaPR";
 var tomtomapi = "LgN742cN8MR1QMntpr5PgYtQih7dxeGz";
 var openweatherapi = "13765804293c80fb9eac8b6b1d0beeb5"
+
+var getUserName = function (userName){
+  userNameContainer.textContent = userName;
+  console.log(userNameContainer);
+  homepageHeader.appendChild(userNameContainer);
+};
 
 /*Home Page actions start here*/
 //EventListener to get started
@@ -55,15 +65,18 @@ getStartedEL.addEventListener("click", () => {
     homepageEL.style.setProperty("visibility", "hidden");
     getStartedEL.style.setProperty("href", "#destinationpage");
     destinationformEL.style.setProperty("visibility", "visible");
-
+    userNameContainer.textContent = nameinputEL.value;
+    localStorage.setItem("userName", JSON.stringify(nameinputEL.value));
+    
   } else {
     nameinputErrorEL.style.setProperty("visibility", "visible");
   }
 })
 
 openCalendarEl.addEventListener("click", ()=> {
- calendarmodalEL.style.setProperty("visibility", "visible");
+  calendarmodalEL.style.setProperty("visibility", "visible");
 })
+
 
 datepickerSubmitEL.addEventListener("click", ()=>{
   event.preventDefault();
