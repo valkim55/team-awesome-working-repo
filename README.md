@@ -70,4 +70,9 @@ Look at the ReadMe.md file in environmentDoc folder to learn how to set-up.
 
 ```
 
-# timeline
+# App Screenshots
+![Image at homepage.](./assets/images/homepage.png)
+![Image at destinationpage.](./assets/images/destinationpage.png)
+![Image at datepicker.](./assets/images/datepicker.png)
+![Image at weatherpage.](./assets/images/weatherpage.png)
+![Image results.](./assets/images/resultspage.png)

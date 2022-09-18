@@ -587,7 +587,7 @@ function displayEndResults(goodTemp) {
     var goButton = document.createElement('button')
 
     goButton.textContent= "GO";
-    var itemToDisplay = `${goodTemp}, ${locationResponse[i].city}, ${locationResponse[i].state} ${locationResponse[i].distance.slice(0, 4)} mi`;
+    var itemToDisplay = `temperatureplaceholder: ${locationResponse[i].city}, ${locationResponse[i].state} ${locationResponse[i].distance.slice(0, 4)} mi`;
 
     listLocationItem.textContent = itemToDisplay;
     eventListEL.appendChild(listLocationItem.appendChild(goButton));
