@@ -6,7 +6,7 @@ https://valkim55.github.io/team-awesome-working-repo/
 ```
 # Repo
 ```
-https://github.com/valkim55/team-awesome-working-repo/edit/main/README.md
+https://github.com/valkim55/team-awesome-working-repo.git
 ```
 
 # User Story
