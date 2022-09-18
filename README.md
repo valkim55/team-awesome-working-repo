@@ -2,7 +2,7 @@
 
 # Deployed 
 ```
-        <Entert URL here >
+https://valkim55.github.io/team-awesome-working-repo/
 ```
 
 # User Story
