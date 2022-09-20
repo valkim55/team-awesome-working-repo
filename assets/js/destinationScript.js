@@ -95,6 +95,8 @@ searchEl.addEventListener("click", () => {
     errorLocationEL.style.setProperty("visibility", "visible");
   } else {
     errorEl.style.setProperty("visibility", "hidden");
+    radiusErrorEl.style.setProperty("visibility", "hidden"); 
+    errorLocationEL.style.setProperty("visibility", "hidden");
     destinationformEL.style.setProperty("visibility", "hidden");
     searchEl.style.setProperty("href", "#weatherpage");
     weatherformEL.style.setProperty("visibility", "visible");
