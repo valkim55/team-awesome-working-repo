@@ -2,7 +2,11 @@
 
 # Deployed 
 ```
-        <Entert URL here >
+https://valkim55.github.io/team-awesome-working-repo/
+```
+# Repo
+```
+https://github.com/valkim55/team-awesome-working-repo.git
 ```
 
 # User Story
@@ -70,4 +74,9 @@ Look at the ReadMe.md file in environmentDoc folder to learn how to set-up.
 
 ```
 
-# timeline
+# App Screenshots
+![Image at homepage.](./assets/images/homepage.png)
+![Image at destinationpage.](./assets/images/destinationpage.png)
+![Image at datepicker.](./assets/images/datepicker.png)
+![Image at weatherpage.](./assets/images/weatherpage.png)
+![Image results.](./assets/images/resultspage.png)
